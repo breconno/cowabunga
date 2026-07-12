@@ -26,7 +26,6 @@ Welcome to Cowabunga College, where GitHub Copilot CLI brings AI assistance dire
 
 Think of it as having a friendly coding sensei available 24/7 who can read your code, explain confusing patterns, and help you move faster with confidence.
 
-> 📘 **Prefer a web experience?** You can follow this course right here on GitHub, or view it on [Awesome Copilot](https://awesome-copilot.github.com/learning-hub/cli-for-beginners/) for a more traditional browsing experience.
 
 This pizza-fueled course is designed for:
 
@@ -36,13 +35,19 @@ This pizza-fueled course is designed for:
 
 ## 🎯 What You'll Learn
 
-This hands-on course takes you from zero to productive with GitHub Copilot CLI. You will train with a single Python book collection app throughout all chapters, progressively improving it using AI-assisted workflows. By the end, you will confidently use AI to review code, generate tests, debug issues, and automate workflows, all from your terminal.
+This hands-on course takes you from zero to productive begining with GitHub Copilot CLI. You will begin training with a single bash collection used throughout all chapters, progressively improving it using AI-assisted workflows. 
+
+You will then progress to training with a single bash Python book collection app throughout all chapters, progressively improving it using AI-assisted workflows. 
+
+By the end, you will confidently use AI to generate agentic primatives, and skill, review code, generate tests, debug issues, and automate workflows, all from your terminal.
+
+Bash and python is the hands, eyes, ears and language, of agents. Consider this fundimental knowledge, skills and tools. Not a learn one-and-done activity, but a life-long practice.  
 
 **No AI experience required.** If you can use a terminal, you are ready for Cowabunga College.
 
 **Perfect for:** Agent developers, agent operators, and students learning agent operations from the ground up.
 
-**Important context:** This repository is not primarily a software engineering training track for developer teams. It is an agent development and agent operations learning path. The early lessons start with GitHub Copilot CLI fundamentals, then expand toward broader agent-system topics such as LLM and RAG patterns over time.
+**Important context:** This repository is an agent development and agent operations learning path. The early lessons start with GitHub Copilot CLI fundamentals.
 
 ## ✅ Prerequisites
 
@@ -63,7 +68,7 @@ GitHub Copilot has evolved into a family of AI-powered tools. Here's where each 
 | [**Copilot on GitHub.com**](https://github.com/copilot) | GitHub | Immersive chat about your repos, create agents, and more |
 | [**GitHub Copilot cloud agent**](https://docs.github.com/copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-tasks) | GitHub  | Assign issues to agents, get PRs back |
 
-This course focuses on **GitHub Copilot CLI**, bringing AI assistance directly to your terminal.
+This school focuses on **GitHub Copilot CLI**, bringing AI assistance directly to your terminal.
 
 ## 📚 Course Structure
 
