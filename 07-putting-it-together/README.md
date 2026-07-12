@@ -130,6 +130,31 @@ Here's the mental model for combining everything:
 
 <img src="assets/integration-pattern.png" alt="The Integration Pattern - A 4-phase workflow: Gather Context (MCP), Analyze and Plan (Agents), Execute (Skills + Manual), Complete (MCP)" width="800"/>
 
+## Mixed-Toolchain Checkpoint (Python + Node)
+
+In this capstone chapter, you will often combine a Python app workflow with small Node.js tooling checks. If you need a refresher, revisit the [Node.js + JavaScript Tooling Primer in Chapter 03](../03-development-workflows/README.md#nodejs-tooling-primer).
+
+Try this quick mixed-toolchain sequence from the repository root:
+
+```bash
+# Python test run for the primary sample app
+cd samples/book-app-project && python -m pytest tests/ -q && cd ../..
+
+# Node.js tooling health check
+node --version
+```
+
+And the matching Copilot CLI prompts:
+
+```text
+copilot
+> Run `cd samples/book-app-project && python -m pytest tests/ -q && cd ../..` and summarize the test result in plain English.
+
+> Run `node --version` and explain why checking tool versions is useful in mixed-toolchain projects.
+```
+
+**Expected output**: You can validate Python behavior and Node.js tooling readiness in one short workflow.
+
 ---
 
 ## Workflow 1: Bug Investigation and Fix

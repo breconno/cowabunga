@@ -60,10 +60,55 @@ This chapter covers five workflows that developers typically use. **However, you
 | Track down and fix a bug | [Workflow 3: Debugging](#workflow-3-debugging) |
 | Generate tests for my code | [Workflow 4: Test Generation](#workflow-4-test-generation) |
 | Write better commits and PRs | [Workflow 5: Git Integration](#workflow-5-git-integration) |
+| Learn Node.js tooling for workflow automation | [Node.js + JavaScript Tooling Primer](#nodejs-tooling-primer) |
 | Research before coding | [Quick Tip: Research Before You Plan or Code](#quick-tip-research-before-you-plan-or-code) |
 | See a full bug-fix workflow end to end | [Putting It All Together](#putting-it-all-together-bug-fix-workflow) |
 
 **Select a workflow below to expand it** and see how GitHub Copilot CLI can enhance your development process in that area. 
+
+---
+
+## Node.js + JavaScript Tooling Primer
+
+<a id="nodejs-tooling-primer"></a>
+
+Even if your main app is Python, Node.js tooling appears in many modern workflows (build scripts, lint tools, one-off automation). This quick primer gives you practical command-line habits you can reuse in the workflows below.
+
+Run these commands from the repository root:
+
+```bash
+# Check Node.js version
+node --version
+
+# Check npm version (Node package manager)
+npm --version
+
+# Check npx version (run npm tools without global install)
+npx --version
+
+# Run a tiny JavaScript snippet directly in Node
+node -e "console.log('Cowabunga from Node.js tooling')"
+
+# Run a small JavaScript example (array + join)
+node -e "const tools = ['node', 'npm', 'npx']; console.log(tools.join(' -> '))"
+```
+
+Now run matching Copilot CLI prompts (one prompt per command):
+
+```text
+copilot
+> Run `node --version` and explain what this version tells me.
+
+> Run `npm --version` and explain what npm is used for in development workflows.
+
+> Run `npx --version` and explain when to use npx instead of npm install -g.
+
+> Run `node -e "console.log('Cowabunga from Node.js tooling')"` and explain what the `-e` flag does.
+
+> Run `node -e "const tools = ['node', 'npm', 'npx']; console.log(tools.join(' -> '))"` and explain the JavaScript in beginner-friendly language.
+```
+
+**Expected output**: You can verify your Node.js toolchain and run short JavaScript snippets that are useful for real development workflows.
 
 ---
 

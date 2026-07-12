@@ -65,13 +65,11 @@ Follow these steps if you'd like to run Copilot CLI on your local machine with t
 
 2. Install Copilot CLI using one of the following options.
 
-    > 💡 **Not sure which to pick?** Use `npm` if you have Node.js installed. Otherwise, choose the option that matches your system.
 
-    ### All Platforms (npm)
+    ### macOS/Linux (Install Script)
 
     ```bash
-    # If you have Node.js installed, this is a quick way to get the CLI
-    npm install -g @github/copilot
+    curl -fsSL https://gh.io/copilot-install | bash
     ```
 
     ### macOS/Linux (Homebrew)
@@ -86,11 +84,14 @@ Follow these steps if you'd like to run Copilot CLI on your local machine with t
     winget install GitHub.Copilot
     ```
 
-    ### macOS/Linux (Install Script)
+    ### All Platforms (npm)
 
     ```bash
-    curl -fsSL https://gh.io/copilot-install | bash
+    # If you have Node.js installed, this is a quick way to get the CLI
+    npm install -g @github/copilot
     ```
+
+    > 💡 **Not sure which to pick?** Use `npm` if you have Node.js installed. Otherwise, choose the option that matches your system.
 
 <details>
 <summary>Optional: Enable shell tab completion</summary>
@@ -227,6 +228,8 @@ copilot
 
 **Expected output**: You can move around the repo, recognize chapter folders, and return to the root without getting lost.
 
+Node.js and JavaScript tooling are covered hands-on in [Chapter 03](../03-development-workflows/README.md), then used in a mixed-toolchain capstone in [Chapter 07](../07-putting-it-together/README.md).
+
 #### Git Fundamentals for Safe AI-Assisted Workflows
 
 Git is a version control system (it tracks file changes over time). These commands help you check what changed before accepting or keeping AI-generated edits.
@@ -361,6 +364,7 @@ copilot
 3. **One-time authentication** - Login persists until token expires
 4. **Bash + Git basics first** - You'll use navigation, status, diff, and commit checks constantly when collaborating with Copilot CLI
 5. **Learning progression is intentional** - bash -> python -> venv -> containers (containers later)
+6. **Node.js progression is intentional** - You'll learn Node.js tooling workflows in Chapter 03 and apply them in Chapter 07
 
 > 📚 **Official Documentation**: [Install Copilot CLI](https://docs.github.com/copilot/how-tos/copilot-cli/cli-getting-started) for installation options and requirements.
 
