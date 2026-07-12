@@ -1,10 +1,10 @@
 <!--
 ---
-id: CopilotCLI-ROOT
+id: CowabungaCollege-ROOT
 title: !translate Cowabunga School and College for Wayward Mutants and Cyborgs
-description: !translate Learn to supercharge your development workflow with AI-powered command-line assistance from your terminal.
-audience: Developers / Students / Terminal users
-slug: copilot-cli-for-beginners
+description: !translate Pizza-powered beginner course to build agent development and operations skills with AI-assisted command-line guidance.
+audience: Agent Developers / Agent Operators / Students
+slug: cowabunga-college-copilot-cli
 weight: 0
 ---
 -->
@@ -20,27 +20,29 @@ weight: 0
 
 # Cowabunga School and College for Wayward Mutants and Cyborgs
 
-> **✨ Learn to supercharge your development workflow with AI-powered command-line assistance.**
+> **✨ Pizza-powered learning for AI-assisted agent operations in your terminal.**
 
-GitHub Copilot CLI brings AI assistance directly to your terminal. Instead of switching to a browser or code editor, you can ask questions, generate full-featured applications, review code, generate tests, and debug issues without leaving your command line.
+Welcome to Cowabunga College, where GitHub Copilot CLI brings AI assistance directly to your terminal. Instead of switching to a browser or code editor, you can ask questions, inspect codebases, automate routine tasks, generate tests, and debug issues without leaving your command line.
 
-Think of it as having a knowledgeable colleague available 24/7 who can read your code, explain confusing patterns, and help you work faster!
+Think of it as having a friendly coding sensei available 24/7 who can read your code, explain confusing patterns, and help you move faster with confidence.
 
 > 📘 **Prefer a web experience?** You can follow this course right here on GitHub, or view it on [Awesome Copilot](https://awesome-copilot.github.com/learning-hub/cli-for-beginners/) for a more traditional browsing experience.
 
-This course is designed for:
+This pizza-fueled course is designed for:
 
-- **Software Developers** who want to use AI from the command line
-- **Terminal users** who prefer keyboard-driven workflows over IDE integrations
-- **Teams looking to standardize** AI-assisted code review and development practices
+- **Agent Developers** who want to build reliable agent-first workflows
+- **Agent Operators** who run, monitor, and improve agent behavior in real environments
+- **Terminal-first practitioners** who prefer keyboard-driven workflows for agent operations
 
 ## 🎯 What You'll Learn
 
-This hands-on course takes you from zero to productive with GitHub Copilot CLI. You'll work with a single Python book collection app throughout all chapters, progressively improving it using AI-assisted workflows. By the end, you'll confidently use AI to review code, generate tests, debug issues, and automate workflows: all from your terminal.
+This hands-on course takes you from zero to productive with GitHub Copilot CLI. You will train with a single Python book collection app throughout all chapters, progressively improving it using AI-assisted workflows. By the end, you will confidently use AI to review code, generate tests, debug issues, and automate workflows, all from your terminal.
 
-**No AI experience required.** If you can use a terminal, you can learn this.
+**No AI experience required.** If you can use a terminal, you are ready for Cowabunga College.
 
-**Perfect for:** Developers, students, and anyone who has experience with software development.
+**Perfect for:** Agent developers, agent operators, and students learning agent operations from the ground up.
+
+**Important context:** This repository is not primarily a software engineering training track for developer teams. It is an agent development and agent operations learning path. The early lessons start with GitHub Copilot CLI fundamentals, then expand toward broader agent-system topics such as LLM and RAG patterns over time.
 
 ## ✅ Prerequisites
 
@@ -65,7 +67,7 @@ This course focuses on **GitHub Copilot CLI**, bringing AI assistance directly t
 
 ## 📚 Course Structure
 
-![GitHub Copilot CLI Learning Path](assets/learning-path.png)
+![Cowabunga College learning path](assets/learning-path.png)
 
 | Chapter | Title | What You'll Build |
 |:-------:|-------|-------------------|
@@ -80,7 +82,7 @@ This course focuses on **GitHub Copilot CLI**, bringing AI assistance directly t
 
 ## 📖 How This Course Works
 
-Each chapter follows the same pattern:
+Each chapter follows the same beginner-friendly training pattern:
 
 1. **Real-World Analogy**: Understand the concept through familiar comparisons
 2. **Core Concepts**: Learn the essential knowledge
@@ -88,22 +90,24 @@ Each chapter follows the same pattern:
 4. **Assignment**: Practice what you learned
 5. **What's Next**: Preview of the following chapter
 
-**Code examples are runnable.** Every copilot text block in this course can be copied and run in your terminal.
+**Code examples are runnable.** Every command block in this course is copy-paste ready. When you see a `copilot` prompt, run it exactly as shown in your terminal session.
 
 ## 📋 GitHub Copilot CLI Command Reference
 
-The **[GitHub Copilot CLI command reference](https://docs.github.com/en/copilot/reference/cli-command-reference)** helps you find commands and keyboard shortcuts to help you use Copilot CLI effectively.
+Need a quick move list before your next coding sparring session? The **[GitHub Copilot CLI command reference](https://docs.github.com/en/copilot/reference/cli-command-reference)** helps you find commands and keyboard shortcuts to use Copilot CLI effectively.
 
 ## 🙋 Getting Help
 
-- 🐛 **Found a bug?** [Open an Issue](https://github.com/breconno/cowabunga/issues)
-- 📚 **Official Docs:** [GitHub Copilot CLI Documentation](https://docs.github.com/copilot/concepts/agents/about-copilot-cli)
+Need backup from the dojo support crew?
+
+- 🐛 **Found a bug in the training grounds?** [Open an Issue](https://github.com/breconno/cowabunga/issues)
+- 📚 **Need official guidance?** [GitHub Copilot CLI Documentation](https://docs.github.com/copilot/concepts/agents/about-copilot-cli)
 
 ## Contributing
 
-> **Note**: The code used in the course is designed to generate specific types of output during reviews, explanations, and debugging so we aren't able to accept PRs that change the existing code.
+> **Dojo Rule**: The code used in this course is intentionally designed to produce specific outputs during reviews, explanations, and debugging. To keep lessons consistent for all learners, we cannot accept PRs that change the existing sample code.
 
-**How to contribute:**
+**How to contribute to Cowabunga College:**
 
 1. Fork this repository and clone it to your machine
 2. Create a feature branch (`git checkout -b my-improvement`)
@@ -112,4 +116,4 @@ The **[GitHub Copilot CLI command reference](https://docs.github.com/en/copilot/
 
 ## License
 
-This project is licensed under the terms of the MIT open source license. Please refer to the [LICENSE](./LICENSE) file for the full terms.
+This project is licensed under the MIT open source license. See the [LICENSE](./LICENSE) file for full details.

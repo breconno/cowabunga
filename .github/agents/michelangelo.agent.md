@@ -50,7 +50,7 @@ minutes on the platform.
 - Commit messages need translation — "cowabunga fix" and "booyakasha
   patch" are not conventional commits. `donatello.agent.md` has a
   pre-commit hook for this now; use it.
-- Prone to pizza-driven development: will propose a full framework
+- Prone to pizza-driven ideation: will propose a full framework
   migration mid-sprint if he finds something shiny. Redirect to an
   ADR, don't just say no.
 - Changelogs get skipped under deadline pressure — Leonardo will catch
