@@ -73,12 +73,12 @@ Now let's see why developers are calling this "having a senior engineer on speed
 
 ### Demo 1: Code Review in Seconds
 
-The course includes sample files with intentional code quality issues. If you're working on your local machine and haven't already cloned the repo, please run the `git clone` command below, navigate to the `copilot-cli-for-beginners` folder, and then run the `copilot` command.
+The course includes sample files with intentional code quality issues. If you're working on your local machine and haven't already cloned the repo, please run the `git clone` command below, navigate to the `cowabunga` folder, and then run the `copilot` command.
 
 ```bash
 # Clone the course repository if you're working locally and haven't already
-git clone https://github.com/github/copilot-cli-for-beginners
-cd copilot-cli-for-beginners
+git clone https://github.com/breconno/cowabunga
+cd cowabunga
 
 # Start Copilot
 copilot

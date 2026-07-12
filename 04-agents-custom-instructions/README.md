@@ -67,6 +67,8 @@ Never used or made an agent? Here's all you need to know to get started for this
 
 3. **Understand the core concept:** Agents are like consulting a specialist instead of a generalist. A "frontend agent" will focus on accessibility and component patterns automatically, you don't have to remind it because it is already specified in the agent's instructions.
 
+4. **See this repo's TMNT agent team:** The project includes a headmaster orchestration model with [splinter.agent.md](../.github/agents/splinter.agent.md) coordinating [leonardo.agent.md](../.github/agents/leonardo.agent.md), [raphael.agent.md](../.github/agents/raphael.agent.md), [michelangelo.agent.md](../.github/agents/michelangelo.agent.md), and [donatello.agent.md](../.github/agents/donatello.agent.md).
+
 
 ## Built-in Agents
 
@@ -161,6 +163,11 @@ When reviewing code, always check for:
 | `hello-world.agent.md` | Minimal example - start here |
 | `python-reviewer.agent.md` | Python code quality reviewer |
 | `pytest-helper.agent.md` | Pytest testing specialist |
+| `splinter.agent.md` | Headmaster orchestrator and final reviewer |
+| `leonardo.agent.md` | Chapter structure and quality reviewer |
+| `raphael.agent.md` | Incident and hotfix specialist |
+| `michelangelo.agent.md` | Learner-facing docs voice and UX steward |
+| `donatello.agent.md` | Tooling and workflow reliability specialist |
 
 ```bash
 # Or copy one to your personal agents folder (available in every project)
@@ -586,6 +593,11 @@ This project includes working examples in the [.github/agents/](../.github/agent
 - [hello-world.agent.md](../.github/agents/hello-world.agent.md) - Minimal example, start here
 - [python-reviewer.agent.md](../.github/agents/python-reviewer.agent.md) - Python code quality reviewer
 - [pytest-helper.agent.md](../.github/agents/pytest-helper.agent.md) - Pytest testing specialist
+- [splinter.agent.md](../.github/agents/splinter.agent.md) - Headmaster orchestrator and required intake format owner
+- [leonardo.agent.md](../.github/agents/leonardo.agent.md) - Chapter structure and quality reviewer
+- [raphael.agent.md](../.github/agents/raphael.agent.md) - Incident and hotfix specialist
+- [michelangelo.agent.md](../.github/agents/michelangelo.agent.md) - Learner-facing docs voice and UX steward
+- [donatello.agent.md](../.github/agents/donatello.agent.md) - Tooling and workflow reliability specialist
 
 For community agents, see [github/awesome-copilot](https://github.com/github/awesome-copilot).
 
@@ -733,7 +745,7 @@ You are a technical writer who creates clear Python documentation.
 **Testing your agents:**
 
 > 💡 **Note:** You should already have `samples/book-app-project/data.json` in your local copy of this repo. If it is missing, download the original version from the source repo:
-> [data.json](https://github.com/github/copilot-cli-for-beginners/blob/main/samples/book-app-project/data.json)
+> [data.json](https://github.com/breconno/cowabunga/blob/main/samples/book-app-project/data.json)
 
 ```bash
 copilot

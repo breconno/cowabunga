@@ -6,7 +6,7 @@
  *   npm run copy:content-engine
  *
  * Optional:
- *   CONTENT_ENGINE_DESTINATION_ROOT=/path/to/cse-content-engine/content/learning-pathways/copilot-cli-for-beginners npm run copy:content-engine
+ *   CONTENT_ENGINE_DESTINATION_ROOT=/path/to/cse-content-engine/content/learning-pathways/cowabunga npm run copy:content-engine
  */
 
 const {
@@ -24,7 +24,7 @@ const { dirname, join, relative, resolve } = require('path');
 const sourceRoot = process.cwd();
 const defaultDestinationRoot = resolve(
   sourceRoot,
-  '../cse-content-engine/content/learning-pathways/copilot-cli-for-beginners',
+  '../cse-content-engine/content/learning-pathways/cowabunga',
 );
 const destinationRoot = resolve(process.env.CONTENT_ENGINE_DESTINATION_ROOT || defaultDestinationRoot);
 const destinationParent = dirname(destinationRoot);

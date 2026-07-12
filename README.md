@@ -1,7 +1,7 @@
 <!--
 ---
 id: CopilotCLI-ROOT
-title: !translate GitHub Copilot CLI for Beginners
+title: !translate Cowabunga School and College for Wayward Mutants and Cyborgs
 description: !translate Learn to supercharge your development workflow with AI-powered command-line assistance from your terminal.
 audience: Developers / Students / Terminal users
 slug: copilot-cli-for-beginners
@@ -9,16 +9,16 @@ weight: 0
 ---
 -->
 
-![GitHub Copilot CLI for Beginners](./assets/copilot-banner.png)
+![Cowabunga College pizza-themed banner](./assets/copilot-banner.svg)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)&ensp;
-[![Open project in GitHub Codespaces](https://img.shields.io/badge/Codespaces-Open-blue?style=flat-square&logo=github)](https://codespaces.new/github/copilot-cli-for-beginners?hide_repo_select=true&ref=main&quickstart=true)&ensp;
+[![Open project in GitHub Codespaces](https://img.shields.io/badge/Codespaces-Open-blue?style=flat-square&logo=github)](https://codespaces.new/breconno/cowabunga?hide_repo_select=true&ref=main&quickstart=true)&ensp;
 [![Official Copilot CLI documentation](https://img.shields.io/badge/GitHub-CLI_Documentation-00a3ee?style=flat-square&logo=github)](https://docs.github.com/en/copilot/how-tos/copilot-cli)&ensp;
 [![Join AI Foundry Discord](https://img.shields.io/badge/Discord-AI_Community-blue?style=flat-square&logo=discord&color=5865f2&logoColor=fff)](https://aka.ms/foundry/discord)
 
 🎯 [What You'll Learn](#what-youll-learn) &ensp; ✅ [Prerequisites](#prerequisites) &ensp; 🤖 [Copilot Family](#understanding-the-github-copilot-family) &ensp; 📚 [Course Structure](#course-structure) &ensp; 📋 [Command Reference](#-github-copilot-cli-command-reference)
 
-# GitHub Copilot CLI for Beginners
+# Cowabunga School and College for Wayward Mutants and Cyborgs
 
 > **✨ Learn to supercharge your development workflow with AI-powered command-line assistance.**
 
@@ -96,7 +96,7 @@ The **[GitHub Copilot CLI command reference](https://docs.github.com/en/copilot/
 
 ## 🙋 Getting Help
 
-- 🐛 **Found a bug?** [Open an Issue](https://github.com/github/copilot-cli-for-beginners/issues)
+- 🐛 **Found a bug?** [Open an Issue](https://github.com/breconno/cowabunga/issues)
 - 📚 **Official Docs:** [GitHub Copilot CLI Documentation](https://docs.github.com/copilot/concepts/agents/about-copilot-cli)
 
 ## Contributing

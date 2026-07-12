@@ -51,7 +51,7 @@ If you see "You don't have access to GitHub Copilot," you'll need to use the fre
 
 If you don't want to install any of the prerequisites you can use GitHub Codespaces, which has the GitHub Copilot CLI ready to go (you'll need to sign in), and pre-installs Python and pytest.
 
-1. [Fork this repository](https://github.com/github/copilot-cli-for-beginners/fork) to your GitHub account
+1. [Fork this repository](https://github.com/breconno/cowabunga/fork) to your GitHub account
 2. Select **Code** > **Codespaces** > **Create codespace on main**
 3. Wait a few minutes for the container to build
 4. You're ready to go! The terminal will open automatically in the Codespace environment.
@@ -65,8 +65,8 @@ Follow these steps if you'd like to run Copilot CLI on your local machine with t
 1. Clone the repo to get the course samples on your machine:
 
     ```bash
-    git clone https://github.com/github/copilot-cli-for-beginners
-    cd copilot-cli-for-beginners
+    git clone https://github.com/breconno/cowabunga
+    cd cowabunga
     ```
 
 2. Install Copilot CLI using one of the following options.
@@ -127,7 +127,7 @@ Restart your shell after adding persistent completion. PowerShell is supported f
 
 ## Authentication
 
-Open a terminal window at the root of the `copilot-cli-for-beginners` repository, start the CLI and allow access to the folder.
+Open a terminal window at the root of the `cowabunga` repository, start the CLI and allow access to the folder.
 
 ```bash
 copilot

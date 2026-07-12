@@ -221,7 +221,7 @@ The GitHub MCP server is built-in and requires no setup. Below are additional se
 }
 ```
 
-> 💡 **The `.` path**: The `.` means "current directory". Copilot can access files relative to where you launched it. In a Codespace, this is your workspace root. You can also use an absolute path like `/workspaces/copilot-cli-for-beginners` if you prefer.
+> 💡 **The `.` path**: The `.` means "current directory". Copilot can access files relative to where you launched it. In a Codespace, this is your workspace root. You can also use an absolute path like `/workspaces/cowabunga` if you prefer.
 
 Add this to your `~/.copilot/mcp-config.json` and restart Copilot.
 

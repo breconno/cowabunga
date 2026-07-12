@@ -18,12 +18,15 @@ jobs:
     name: Copy content and open content-engine PR
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    env:
+      COURSE_REPO_DIR: cowabunga
+      CONTENT_ENGINE_PATHWAY_SLUG: cowabunga
 
     steps:
       - name: Checkout course repository
         uses: actions/checkout@v4
         with:
-          path: copilot-cli-for-beginners
+          path: ${{ env.COURSE_REPO_DIR }}
 
       - name: Checkout content-engine repository
         uses: actions/checkout@v4
@@ -38,9 +41,9 @@ jobs:
           node-version: "20"
 
       - name: Copy course content into content-engine
-        working-directory: copilot-cli-for-beginners
+        working-directory: ${{ env.COURSE_REPO_DIR }}
         env:
-          CONTENT_ENGINE_DESTINATION_ROOT: ${{ github.workspace }}/cse-content-engine/content/learning-pathways/copilot-cli-for-beginners
+          CONTENT_ENGINE_DESTINATION_ROOT: ${{ github.workspace }}/cse-content-engine/content/learning-pathways/${{ env.CONTENT_ENGINE_PATHWAY_SLUG }}
         run: npm run copy:content-engine
 
       - name: Create content-engine pull request
@@ -48,13 +51,13 @@ jobs:
         with:
           path: cse-content-engine
           token: ${{ secrets.GH_AW_GITHUB_TOKEN }}
-          commit-message: "Update Copilot CLI for Beginners content"
-          title: "Update Copilot CLI for Beginners content"
+          commit-message: "Update Cowabunga course content"
+          title: "Update Cowabunga course content"
           body: |
-            This automated PR syncs the latest `github/copilot-cli-for-beginners`
+            This automated PR syncs the latest `${{ github.repository }}`
             content into the content-engine learning pathway.
 
             Source commit: ${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}
-          branch: update/copilot-cli-for-beginners-content
+          branch: update/cowabunga-content
           base: main
           delete-branch: true

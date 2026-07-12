@@ -28,6 +28,7 @@ jobs:
 
     env:
       TRANSLATION_LANGUAGES: "es"
+      REPO_URL: ${{ github.server_url }}/${{ github.repository }}.git
       PYTHONIOENCODING: utf-8
       AZURE_OPENAI_API_KEY: ${{ secrets.AZURE_OPENAI_API_KEY }}
       AZURE_OPENAI_ENDPOINT: ${{ secrets.AZURE_OPENAI_ENDPOINT }}
@@ -60,7 +61,7 @@ jobs:
       - name: Translate Markdown
         run: |
           for attempt in 1 2 3; do
-            if translate -l "$TRANSLATION_LANGUAGES" -md -y -s --repo-url "https://github.com/github/copilot-cli-for-beginners.git"; then
+            if translate -l "$TRANSLATION_LANGUAGES" -md -y -s --repo-url "$REPO_URL"; then
               exit 0
             fi
             echo "Markdown translation attempt $attempt failed."
@@ -73,7 +74,7 @@ jobs:
       - name: Translate images
         run: |
           for attempt in 1 2 3; do
-            if translate -l "$TRANSLATION_LANGUAGES" -img -y -s --repo-url "https://github.com/github/copilot-cli-for-beginners.git"; then
+            if translate -l "$TRANSLATION_LANGUAGES" -img -y -s --repo-url "$REPO_URL"; then
               exit 0
             fi
             echo "Image translation attempt $attempt failed."

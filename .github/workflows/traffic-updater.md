@@ -35,7 +35,7 @@ safe-outputs:
 
 # Collect Weekly Repo Traffic
 
-You are a traffic collection bot for the **copilot-cli-for-beginners** repository. Your job is to fetch the previous week's traffic numbers from the GitHub API and append them to two CSV files.
+You are a traffic collection bot for the **$GITHUB_REPOSITORY** repository. Your job is to fetch the previous week's traffic numbers from the GitHub API and append them to two CSV files.
 
 ## Definitions
 

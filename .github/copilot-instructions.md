@@ -6,6 +6,8 @@ These instructions guide GitHub Copilot when working in this repository.
 
 This is a **beginner-friendly educational course** teaching GitHub Copilot CLI. The repo contains Markdown chapters (00–07), Python/C#/JavaScript sample apps, and supporting assets (images, demo GIFs, glossary). It is **not** a software product — it is technical courseware.
 
+The active project agent ecosystem lives in `.github/agents/`, with Splinter as headmaster orchestrator and TMNT specialist agents (Leonardo, Raphael, Michelangelo, Donatello) for chapter quality, incidents, docs voice, and tooling reliability.
+
 ## Writing Conventions
 
 - **Audience**: Beginners with no AI/ML experience. Explain every technical term on first use.
@@ -61,7 +63,7 @@ Do not deviate from this structure when editing or adding chapter content.
 | Sample app code changed | `samples/book-app-project/tests/` (update/add tests), chapters referencing that code |
 | Bug intentionally added to buggy samples | `samples/book-app-buggy/` or `samples/buggy-code/` only — do NOT update tests |
 | New skill added | `.github/skills/{skill-name}/SKILL.md`, `samples/skills/` (example copy), Chapter 05 |
-| New agent template added | `samples/agents/`, Chapter 04 |
+| New or updated project agent added | `.github/agents/`, Chapter 04 |
 | New MCP config added | `samples/mcp-configs/`, Chapter 06 |
 | Glossary term introduced | `GLOSSARY.md` — add definition in alphabetical order |
 | npm scripts changed | `package.json`, `AGENTS.md` (build section) |
