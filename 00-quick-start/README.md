@@ -47,16 +47,10 @@ If you see "You don't have access to GitHub Copilot," you'll need to use the fre
 
 > ⏱️ **Time estimate**: Installation takes 2-5 minutes. Authentication adds another 1-2 minutes.
 
-### GitHub Codespaces (Zero Setup)
+### Environment Note
 
-If you don't want to install prerequisites locally, you can use GitHub Codespaces. It has GitHub Copilot CLI ready to go (you'll still need to sign in), plus Python and pytest pre-installed for later chapters.
-
-1. [Fork this repository](https://github.com/breconno/cowabunga/fork) to your GitHub account
-2. Select **Code** > **Codespaces** > **Create codespace on main**
-3. Wait a few minutes for the container to build
-4. You're ready to go! The terminal will open automatically in the Codespace environment.
-
-> 💡 **Verify in Codespace**: Run `copilot` to confirm the CLI opens correctly in your Codespace terminal.
+This chapter is intentionally local-terminal first so you can build confidence with your own shell setup.
+We'll cover Codespaces and container-based workflows later in the course.
 
 ### Local Installation
 
@@ -362,10 +356,11 @@ copilot
 
 ## 🔑 Key Takeaways
 
-1. **A GitHub Codespace is a quick way to get started** - GitHub Copilot CLI is ready quickly, and Python/pytest are pre-installed for later exercises
+1. **Local terminal first in this chapter** - Use `git clone` and a local Copilot CLI install path before moving to cloud/container workflows later
 2. **Multiple installation methods** - Choose what works for your system (Homebrew, WinGet, npm, or install script)
 3. **One-time authentication** - Login persists until token expires
 4. **Bash + Git basics first** - You'll use navigation, status, diff, and commit checks constantly when collaborating with Copilot CLI
+5. **Learning progression is intentional** - bash -> python -> venv -> containers (containers later)
 
 > 📚 **Official Documentation**: [Install Copilot CLI](https://docs.github.com/copilot/how-tos/copilot-cli/cli-getting-started) for installation options and requirements.
 
