@@ -80,7 +80,7 @@ This example uses the `@` symbol to reference a file, giving Copilot CLI direct 
 ```bash
 copilot
 
-> Review @samples/book-app-project/book_app.py for code quality
+> Review @samples/tmnt-stub/pizza_recipe_app.py for code quality
 ```
 
 ---
@@ -907,10 +907,10 @@ The exercise shows developers how to use GitHub Copilot CLI to create issues, ge
 copilot
 
 # Instead of:
-> Review @samples/book-app-project/book_app.py
+> Review @samples/tmnt-stub/pizza_recipe_app.py
 
 # Try:
-> Review @samples/book-app-project/book_app.py for input validation, error handling, and edge cases
+> Review @samples/tmnt-stub/pizza_recipe_app.py for input validation, error handling, and edge cases
 ```
 
 **Tests don't match my framework** - Specify the framework:

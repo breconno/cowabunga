@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="760" viewBox="0 0 1400 760" role="img" aria-labelledby="title desc">
+  <title id="title">TMNT Themed Trust Prompt Mockup</title>
+  <desc id="desc">Terminal-style trust prompt with TMNT-themed colors and friendly copy.</desc>
+  <rect width="1400" height="760" fill="#0d2417" />
+  <rect x="70" y="70" width="1260" height="620" rx="18" fill="#132f1f" stroke="#ff8b2b" stroke-width="4" />
+
+  <rect x="70" y="70" width="1260" height="56" rx="18" fill="#1d4730" />
+  <circle cx="106" cy="98" r="10" fill="#ff5f57" />
+  <circle cx="136" cy="98" r="10" fill="#febc2e" />
+  <circle cx="166" cy="98" r="10" fill="#28c840" />
+  <text x="210" y="106" font-size="24" font-family="Verdana, Geneva, sans-serif" fill="#d8f5dd">Copilot CLI - TMNT Dojo Trust Check</text>
+
+  <text x="120" y="190" font-size="38" font-family="Verdana, Geneva, sans-serif" fill="#f4fff7" font-weight="700">Trust this training ground?</text>
+  <text x="120" y="240" font-size="27" font-family="Verdana, Geneva, sans-serif" fill="#bde8c7">Path: /workspaces/cowabunga</text>
+  <text x="120" y="284" font-size="27" font-family="Verdana, Geneva, sans-serif" fill="#bde8c7">This lets Copilot inspect files to help with your next mission.</text>
+
+  <rect x="120" y="340" width="530" height="86" rx="12" fill="#ff8b2b" />
+  <text x="385" y="394" text-anchor="middle" font-size="30" font-family="Verdana, Geneva, sans-serif" fill="#1b1104" font-weight="700">Trust this folder</text>
+
+  <rect x="690" y="340" width="530" height="86" rx="12" fill="#245c3a" stroke="#6fe08c" stroke-width="3" />
+  <text x="955" y="394" text-anchor="middle" font-size="30" font-family="Verdana, Geneva, sans-serif" fill="#d9ffe1" font-weight="700">Not now</text>
+
+  <text x="120" y="500" font-size="24" font-family="Verdana, Geneva, sans-serif" fill="#97d1a6">Tip: Trust once for this session, or keep trust enabled for future dojo practice.</text>
+  <text x="120" y="550" font-size="24" font-family="Verdana, Geneva, sans-serif" fill="#97d1a6">Safer workflow: review changes with git status and git diff before commits.</text>
+
+  <circle cx="1180" cy="540" r="84" fill="#f4d35e" opacity="0.2" />
+  <circle cx="1120" cy="570" r="10" fill="#be2f27" />
+  <circle cx="1216" cy="516" r="9" fill="#be2f27" />
+  <circle cx="1178" cy="600" r="9" fill="#be2f27" />
+</svg>

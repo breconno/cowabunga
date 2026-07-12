@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="760" viewBox="0 0 1400 760" role="img" aria-labelledby="title desc">
+  <title id="title">TMNT Device Authorization Flow</title>
+  <desc id="desc">Five-step TMNT-themed diagram showing login with device code.</desc>
+  <rect width="1400" height="760" fill="#102a1b" />
+  <text x="700" y="72" text-anchor="middle" font-size="40" font-family="Verdana, Geneva, sans-serif" fill="#f3fff6" font-weight="700">Device Authorization Flow</text>
+  <text x="700" y="110" text-anchor="middle" font-size="24" font-family="Verdana, Geneva, sans-serif" fill="#9ed7aa">TMNT Quick Start login path</text>
+
+  <g font-family="Verdana, Geneva, sans-serif">
+    <rect x="90" y="170" width="1220" height="92" rx="14" fill="#1f5f31" stroke="#6ddf8f" stroke-width="2" />
+    <circle cx="140" cy="216" r="25" fill="#ff8b2b" />
+    <text x="140" y="224" text-anchor="middle" font-size="24" fill="#111">1</text>
+    <text x="190" y="226" font-size="28" fill="#e9ffee">Run /login and copy the one-time code.</text>
+
+    <rect x="90" y="284" width="1220" height="92" rx="14" fill="#1f5f31" stroke="#6ddf8f" stroke-width="2" />
+    <circle cx="140" cy="330" r="25" fill="#ff8b2b" />
+    <text x="140" y="338" text-anchor="middle" font-size="24" fill="#111">2</text>
+    <text x="190" y="340" font-size="28" fill="#e9ffee">Open github.com/login/device in your browser.</text>
+
+    <rect x="90" y="398" width="1220" height="92" rx="14" fill="#1f5f31" stroke="#6ddf8f" stroke-width="2" />
+    <circle cx="140" cy="444" r="25" fill="#ff8b2b" />
+    <text x="140" y="452" text-anchor="middle" font-size="24" fill="#111">3</text>
+    <text x="190" y="454" font-size="28" fill="#e9ffee">Paste the code and continue.</text>
+
+    <rect x="90" y="512" width="1220" height="92" rx="14" fill="#1f5f31" stroke="#6ddf8f" stroke-width="2" />
+    <circle cx="140" cy="558" r="25" fill="#ff8b2b" />
+    <text x="140" y="566" text-anchor="middle" font-size="24" fill="#111">4</text>
+    <text x="190" y="568" font-size="28" fill="#e9ffee">Authorize Copilot CLI for this account.</text>
+
+    <rect x="90" y="626" width="1220" height="92" rx="14" fill="#1f5f31" stroke="#6ddf8f" stroke-width="2" />
+    <circle cx="140" cy="672" r="25" fill="#ff8b2b" />
+    <text x="140" y="680" text-anchor="middle" font-size="24" fill="#111">5</text>
+    <text x="190" y="682" font-size="28" fill="#e9ffee">Return to terminal. You are authenticated and ready.</text>
+  </g>
+</svg>

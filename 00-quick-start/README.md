@@ -9,7 +9,7 @@ weight: 1
 ---
 -->
 
-![Chapter 00: Quick Start](assets/chapter-header.png)
+![Chapter 00: Quick Start (TMNT theme)](assets/chapter-header-tmnt.svg)
 
 Welcome! In this chapter, you'll get GitHub Copilot CLI (Command Line Interface) installed, signed in with your GitHub account, and verified that everything works. This is a quick setup chapter. Once you're up and running, the real demos start in Chapter 01!
 
@@ -28,7 +28,7 @@ By the end of this chapter, you'll have:
 ## ✅ Prerequisites
 
 - **GitHub Account** with Copilot access. [See subscription options](https://github.com/features/copilot/plans). Students/Teachers can access Copilot Pro for [free via GitHub Education](https://education.github.com/pack).
-- **Terminal basics**: Comfortable with commands like `cd` and `ls`
+- **Terminal basics**: Comfortable running simple shell commands like `cd` and `ls` (a shell is the text-based command prompt in your terminal)
 
 ### What "Copilot Access" Means
 
@@ -49,14 +49,14 @@ If you see "You don't have access to GitHub Copilot," you'll need to use the fre
 
 ### GitHub Codespaces (Zero Setup)
 
-If you don't want to install any of the prerequisites you can use GitHub Codespaces, which has the GitHub Copilot CLI ready to go (you'll need to sign in), and pre-installs Python and pytest.
+If you don't want to install prerequisites locally, you can use GitHub Codespaces. It has GitHub Copilot CLI ready to go (you'll still need to sign in), plus Python and pytest pre-installed for later chapters.
 
 1. [Fork this repository](https://github.com/breconno/cowabunga/fork) to your GitHub account
 2. Select **Code** > **Codespaces** > **Create codespace on main**
 3. Wait a few minutes for the container to build
 4. You're ready to go! The terminal will open automatically in the Codespace environment.
 
-> 💡 **Verify in Codespace**: Run `cd samples/book-app-project && python book_app.py help` to confirm Python and the sample app are working.
+> 💡 **Verify in Codespace**: Run `copilot` to confirm the CLI opens correctly in your Codespace terminal.
 
 ### Local Installation
 
@@ -151,7 +151,7 @@ After trusting the folder, you can sign in with your GitHub account.
 4. Select "Authorize" to grant GitHub Copilot CLI access
 5. Return to your terminal - you're now signed in!
 
-<img src="assets/auth-device-flow.png" alt="Device Authorization Flow - showing the 5-step process from terminal login to signed-in confirmation" width="800"/>
+<img src="assets/auth-device-flow-tmnt.svg" alt="TMNT-themed device authorization flow showing the 5-step process from terminal login to signed-in confirmation" width="800"/>
 
 *The device authorization flow: your terminal generates a code, you verify it in the browser, and Copilot CLI is authenticated.*
 
@@ -163,7 +163,7 @@ After trusting the folder, you can sign in with your GitHub account.
 
 ### Step 1: Test Copilot CLI
 
-Now that you're signed in, let's verify that Copilot CLI is working for you. In the terminal, start the CLI if you haven't already:
+Now that you're signed in, let's verify that Copilot CLI is working for you. If you're not already in the Copilot CLI session, run `copilot` first, then enter:
 
 ```bash
 > Say hello and tell me what you can help with
@@ -180,7 +180,7 @@ After you receive a response, you can exit the CLI:
 <details>
 <summary>🎬 See it in action!</summary>
 
-![Hello Demo](assets/hello-demo.gif)
+![Hello Demo (TMNT theme)](assets/hello-demo-tmnt.svg)
 
 *Demo output varies. Your model, tools, and responses will differ from what's shown here.*
 
@@ -190,30 +190,105 @@ After you receive a response, you can exit the CLI:
 
 **Expected output**: A friendly response listing Copilot CLI's capabilities.
 
-### Step 2: Run the Sample Book App
+### Step 2: Bash Fundamentals for Agentic Operations
 
-The course provides a sample app that you'll explore and improve throughout the course using the CLI *(You can see the code for this in /samples/book-app-project)*. Check that the *Python book collection terminal app* works before you get started. Run `python` or `python3` depending on your system.
+Before working with the Python sample app, build a quick Bash foundation so the next chapters feel easier.
 
-> **Note:** The primary examples shown throughout the course use Python (`samples/book-app-project`) so you'll need to have [Python 3.10+](https://www.python.org/downloads/) available on your local machine if you chose that option (the Codespace already has it installed). JavaScript (`samples/book-app-project-js`) and C# (`samples/book-app-project-cs`) versions are also available if you prefer to work with those languages. Each sample has a README with instructions for running the app in that language.
+Bash is a shell (a text interface where you run commands). Agentic operations means using Copilot CLI to help inspect, edit, and validate files from the terminal.
 
-```bash
-cd samples/book-app-project
-python book_app.py list
-```
-
-**Expected output**: A list of 5 books including "The Hobbit", "1984", and "Dune".
-
-### Step 3: Try Copilot CLI with the Book App
-
-Navigate back to the repository root first (if you ran Step 2):
+Run these commands from the repository root:
 
 ```bash
-cd ../..   # Back to the repository root if needed
-copilot 
-> What does @samples/book-app-project/book_app.py do?
+# Show where you are
+pwd
+
+# List files and folders in the current location
+ls
+
+# List files with extra details (permissions, size, modified time)
+ls -la
+
+# Move into Chapter 00 and list what is there
+cd 00-quick-start
+ls
+
+# Return to the repository root
+cd ..
 ```
 
-**Expected output**: A summary of the book app's main functions and commands.
+Now do the same workflow with Copilot CLI prompts (one prompt per command):
+
+```text
+copilot
+> What workspace and path I am currently in?
+
+> Explain what each top-level folder is for in this repo.
+
+> Run `ls -la` and explain what the extra columns and hidden entries mean.
+
+> Move into `00-quick-start` then summarize what files are there.
+
+> Go back to the repository root with and confirm where we are now.
+```
+
+**Expected output**: You can move around the repo, recognize chapter folders, and return to the root without getting lost.
+
+#### Git Fundamentals for Safe AI-Assisted Workflows
+
+Git is a version control system (it tracks file changes over time). These commands help you check what changed before accepting or keeping AI-generated edits.
+
+```bash
+# See changed files
+git status
+
+# Stage one file (put it in the staging area, the "ready to commit" list)
+git add 00-quick-start/README.md
+
+# Review exactly what is staged
+git diff --staged
+
+# Save staged changes with a message
+git commit -m "docs: update chapter 00 bash-first onboarding"
+
+# Show recent commits in one-line format
+git log --oneline
+```
+
+Now do the same Git workflow with Copilot CLI prompts (one prompt per command):
+
+```text
+copilot
+> Explain which files are modified, staged, or untracked.
+
+> Add 00-quick-start/README.md, then run `git status` and explain what changed.
+
+> Run `git diff --staged` and summarize exactly what is staged.
+
+> Run `git commit -m "docs: update chapter 00 bash-first onboarding"` and explain the commit result.
+
+> Run `git log --oneline -n 5` and explain what each part of each line means.
+```
+
+**Safety tip**: Read `git diff --staged` before every commit so you verify exactly what will be recorded.
+
+> **Note:** This Quick Start chapter uses a temporary TMNT Python stub at `samples/tmnt-stub/pizza_recipe_app.py` for explanation practice. You are not running the app in this step.
+
+### Step 3: Try Copilot CLI with a Temporary TMNT Stub
+
+Make sure you're at the repository root first:
+
+```bash
+# Works from any subfolder inside this repository
+cd "$(git rev-parse --show-toplevel)"
+copilot
+> What does @samples/tmnt-stub/pizza_recipe_app.py do?
+```
+
+**Expected output**: A short explanation of the TMNT-themed placeholder file and its simple helper functions.
+
+This step uses a temporary stub file while the full TMNT sample app is still being built.
+It keeps this quick-start exercise simple and focused on learning how to ask Copilot CLI to explain code.
+You are not running the Python app yet.
 
 If you see an error, check the [troubleshooting section](#troubleshooting) below.
 
@@ -287,10 +362,10 @@ copilot
 
 ## 🔑 Key Takeaways
 
-1. **A GitHub Codespace is a quick way to get started** - Python, pytest, and GitHub Copilot CLI are all pre-installed so you can jump right into the demos
+1. **A GitHub Codespace is a quick way to get started** - GitHub Copilot CLI is ready quickly, and Python/pytest are pre-installed for later exercises
 2. **Multiple installation methods** - Choose what works for your system (Homebrew, WinGet, npm, or install script)
 3. **One-time authentication** - Login persists until token expires
-4. **The book app works** - You'll use `samples/book-app-project` throughout the entire course
+4. **Bash + Git basics first** - You'll use navigation, status, diff, and commit checks constantly when collaborating with Copilot CLI
 
 > 📚 **Official Documentation**: [Install Copilot CLI](https://docs.github.com/copilot/how-tos/copilot-cli/cli-getting-started) for installation options and requirements.
 

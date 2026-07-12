@@ -117,7 +117,7 @@ This gives you explicit control when you want to ensure a specific skill is used
 You can invoke **more than one skill in a single message**, and the skill slash command can appear anywhere in your prompt — not just at the beginning. This is handy when you want two different checks done in one go:
 
 ```bash
-> Check @samples/book-app-project/book_app.py with /code-checklist and also run /generate-tests for it
+> Check @samples/tmnt-stub/pizza_recipe_app.py with /code-checklist and also run /generate-tests for it
 
 > Review the auth module /security-audit then /code-checklist the result
 ```

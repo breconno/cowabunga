@@ -87,7 +87,7 @@ copilot
 Once inside the interactive Copilot CLI session, run the following:
 
 ```
-> Review @samples/book-app-project/book_app.py for code quality issues and suggest improvements
+> Review @samples/tmnt-stub/pizza_recipe_app.py for code quality issues and suggest improvements
 ```
 
 > 💡 **What's the `@` symbol used for?** The `@` symbol tells Copilot CLI to read a file. You'll learn all about this in Chapter 02. For now, just copy the command exactly as shown.
@@ -585,7 +585,7 @@ After completing the demos, try these variations:
 
 2. **Plan Mode Challenge**: Run `/plan Add rating and review features to the book app`. Read the plan carefully. Does it make sense?
 
-3. **Programmatic Challenge**: Run `copilot --allow-all -p "List all functions in @samples/book-app-project/book_app.py and describe what each does"`. Did it work on the first try?
+3. **Programmatic Challenge**: Run `copilot --allow-all -p "List all functions in @samples/tmnt-stub/pizza_recipe_app.py and describe what each does"`. Did it work on the first try?
 
 ---
 

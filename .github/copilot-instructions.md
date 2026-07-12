@@ -15,6 +15,7 @@ The active project agent ecosystem lives in `.github/agents/`, with Splinter as 
 - **Examples**: All code blocks and `copilot` commands must be copy-paste ready. Test them mentally before including.
 - **Naming**: Use kebab-case for session names, file names, and identifiers (e.g., `book-app-review`, not `book app review`).
 - **Command syntax**: Standardize flag format — use `--flag=value` consistently when a value is required, `--flag` when boolean.
+- **Terminal tooling**: Do not use the `rg` command in examples or agent workflows for this repository. Prefer widely available commands such as `grep`, `find`, `ls`, or editor search tools instead.
 - **Precision**: Don't over-specify tool behavior that may vary across shells or OS. Describe what the user will see, not implementation details.
 - **Fallbacks**: When referencing tool version requirements (e.g., `gh` CLI version), always include upgrade instructions or a manual alternative.
 
