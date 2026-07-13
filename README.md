@@ -18,7 +18,7 @@ weight: 0
 
 🎯 [What You'll Learn](#what-youll-learn) &ensp; ✅ [Prerequisites](#prerequisites) &ensp; 🤖 [Copilot Family](#understanding-the-github-copilot-family) &ensp; 📚 [Course Structure](#course-structure) &ensp; 📋 [Command Reference](#-github-copilot-cli-command-reference)
 
-# Cowabunga School and College for Wayward Mutants and Cyborgs
+# Cowabunga School for Wayward Mutants
 
 > **✨ Pizza-powered learning for AI-assisted agent operations in your terminal.**
 
