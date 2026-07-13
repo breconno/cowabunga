@@ -1,0 +1,183 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1645" height="230" viewBox="0 0 1645 230" role="img" aria-labelledby="title desc">
+  <title id="title">Cowabunga College Learning Path</title>
+  <desc id="desc">Eight dojo-themed chapter cards connected by arrows, from Install through Complete.</desc>
+
+  <defs>
+    <linearGradient id="cardBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#123222" />
+      <stop offset="100%" stop-color="#0a1f16" />
+    </linearGradient>
+    <linearGradient id="cheese" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffe08a" />
+      <stop offset="100%" stop-color="#e8a33d" />
+    </linearGradient>
+    <filter id="cardShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="5" stdDeviation="6" flood-color="#000" flood-opacity="0.5" />
+    </filter>
+    <filter id="glow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="3.2" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+
+    <!-- reusable card shell -->
+    <g id="card">
+      <rect x="-75" y="-97" width="150" height="194" rx="18" fill="url(#cardBg)" stroke="#7cff6b" stroke-width="2.5" />
+      <rect x="-75" y="-97" width="150" height="194" rx="18" fill="none" stroke="#7cff6b" stroke-opacity="0.35" stroke-width="6" />
+    </g>
+
+    <!-- Chapter 0: Install -> pizza box delivery -->
+    <g id="iconInstall">
+      <path d="M0,-30 L0,4 M-12,-8 L0,4 L12,-8" fill="none" stroke="#7cff6b" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+      <rect x="-24" y="10" width="48" height="24" rx="3" fill="none" stroke="url(#cheese)" stroke-width="5" />
+      <path d="M-24,10 L0,22 L24,10" fill="none" stroke="url(#cheese)" stroke-width="4" stroke-linejoin="round" />
+    </g>
+
+    <!-- Chapter 1: Modes -> ninja toggle -->
+    <g id="iconModes">
+      <rect x="-30" y="-14" width="60" height="28" rx="14" fill="none" stroke="#7cff6b" stroke-width="5" />
+      <circle cx="12" cy="0" r="10" fill="#7cff6b" filter="url(#glow)" />
+    </g>
+
+    <!-- Chapter 2: Context -> dojo scroll -->
+    <g id="iconContext">
+      <rect x="-18" y="-26" width="36" height="52" rx="4" fill="none" stroke="url(#cheese)" stroke-width="5" />
+      <circle cx="-18" cy="-26" r="6" fill="none" stroke="#c23b3b" stroke-width="4" />
+      <circle cx="18" cy="26" r="6" fill="none" stroke="#c23b3b" stroke-width="4" />
+      <path d="M-9,-10 L9,-10 M-9,2 L9,2 M-9,14 L4,14" stroke="#7cff6b" stroke-width="3.5" stroke-linecap="round" />
+    </g>
+
+    <!-- Chapter 3: Workflows -> shuriken node map -->
+    <g id="iconWorkflows">
+      <rect x="-8" y="-30" width="16" height="16" rx="3" fill="none" stroke="#7cff6b" stroke-width="4.5" />
+      <rect x="-26" y="10" width="16" height="16" rx="3" fill="none" stroke="#7cff6b" stroke-width="4.5" />
+      <rect x="10" y="10" width="16" height="16" rx="3" fill="none" stroke="#7cff6b" stroke-width="4.5" />
+      <path d="M0,-14 L0,-2 L-18,10 M0,-2 L18,10" fill="none" stroke="#7cff6b" stroke-width="4" />
+    </g>
+
+    <!-- Chapter 4: Agents -> turtle bandana mask -->
+    <g id="iconAgents">
+      <path d="M-28,-6 C-28,-24 28,-24 28,-6 C28,10 16,20 0,20 C-16,20 -28,10 -28,-6 Z" fill="none" stroke="#7cff6b" stroke-width="5" stroke-linejoin="round" />
+      <ellipse cx="-11" cy="-6" rx="6" ry="5" fill="#0a1f16" stroke="#7cff6b" stroke-width="3" />
+      <ellipse cx="11" cy="-6" rx="6" ry="5" fill="#0a1f16" stroke="#7cff6b" stroke-width="3" />
+      <path d="M28,-14 L42,-20 M28,-2 L42,2" stroke="#c23b3b" stroke-width="4.5" stroke-linecap="round" />
+    </g>
+
+    <!-- Chapter 5: Skills -> crossed nunchaku -->
+    <g id="iconSkills">
+      <g transform="rotate(45)">
+        <rect x="-30" y="-4" width="24" height="8" rx="4" fill="url(#cheese)" stroke="#7c4a12" stroke-width="1.5" />
+        <circle cx="0" cy="0" r="3.5" fill="#7cff6b" />
+        <rect x="6" y="-4" width="24" height="8" rx="4" fill="url(#cheese)" stroke="#7c4a12" stroke-width="1.5" />
+      </g>
+      <g transform="rotate(-45)">
+        <rect x="-30" y="-4" width="24" height="8" rx="4" fill="url(#cheese)" stroke="#7c4a12" stroke-width="1.5" />
+        <circle cx="0" cy="0" r="3.5" fill="#7cff6b" />
+        <rect x="6" y="-4" width="24" height="8" rx="4" fill="url(#cheese)" stroke="#7c4a12" stroke-width="1.5" />
+      </g>
+    </g>
+
+    <!-- Chapter 6: MCP -> plug -->
+    <g id="iconMCP">
+      <path d="M-10,-28 L-10,-10 M10,-28 L10,-10" stroke="#7cff6b" stroke-width="5.5" stroke-linecap="round" />
+      <rect x="-18" y="-10" width="36" height="22" rx="8" fill="none" stroke="#7cff6b" stroke-width="5.5" />
+      <path d="M0,12 L0,30" stroke="#7cff6b" stroke-width="5.5" stroke-linecap="round" />
+    </g>
+
+    <!-- Chapter 7: Complete -> shuriken check -->
+    <g id="iconComplete">
+      <circle r="28" fill="none" stroke="#7cff6b" stroke-width="5" />
+      <path d="M-13,0 L-3,11 L15,-11" fill="none" stroke="#7cff6b" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)" />
+    </g>
+
+    <g id="arrow">
+      <path d="M0,-16 L26,0 L0,16" fill="none" stroke="#7cff6b" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)" />
+    </g>
+  </defs>
+
+  <rect width="1645" height="230" fill="none" />
+
+  <!-- Cards -->
+  <g font-family="Verdana, Geneva, sans-serif" text-anchor="middle">
+    <!-- Chapter 0 -->
+    <g transform="translate(105 115)" filter="url(#cardShadow)">
+      <use href="#card" />
+      <g transform="translate(0 -30)"><use href="#iconInstall" /></g>
+      <line x1="-50" y1="14" x2="50" y2="14" stroke="#7cff6b" stroke-opacity="0.3" stroke-width="2" />
+      <text y="40" font-size="18" fill="#9ed7aa">Chapter 0</text>
+      <text y="68" font-size="24" font-weight="700" fill="#f4fbf5">Install</text>
+    </g>
+    <g transform="translate(197 115)"><use href="#arrow" /></g>
+
+    <!-- Chapter 1 -->
+    <g transform="translate(310 115)" filter="url(#cardShadow)">
+      <use href="#card" />
+      <g transform="translate(0 -30)"><use href="#iconModes" /></g>
+      <line x1="-50" y1="14" x2="50" y2="14" stroke="#7cff6b" stroke-opacity="0.3" stroke-width="2" />
+      <text y="40" font-size="18" fill="#9ed7aa">Chapter 1</text>
+      <text y="68" font-size="24" font-weight="700" fill="#f4fbf5">Modes</text>
+    </g>
+    <g transform="translate(402 115)"><use href="#arrow" /></g>
+
+    <!-- Chapter 2 -->
+    <g transform="translate(515 115)" filter="url(#cardShadow)">
+      <use href="#card" />
+      <g transform="translate(0 -30)"><use href="#iconContext" /></g>
+      <line x1="-50" y1="14" x2="50" y2="14" stroke="#7cff6b" stroke-opacity="0.3" stroke-width="2" />
+      <text y="40" font-size="18" fill="#9ed7aa">Chapter 2</text>
+      <text y="68" font-size="24" font-weight="700" fill="#f4fbf5">Context</text>
+    </g>
+    <g transform="translate(607 115)"><use href="#arrow" /></g>
+
+    <!-- Chapter 3 -->
+    <g transform="translate(720 115)" filter="url(#cardShadow)">
+      <use href="#card" />
+      <g transform="translate(0 -30)"><use href="#iconWorkflows" /></g>
+      <line x1="-50" y1="14" x2="50" y2="14" stroke="#7cff6b" stroke-opacity="0.3" stroke-width="2" />
+      <text y="40" font-size="18" fill="#9ed7aa">Chapter 3</text>
+      <text y="68" font-size="24" font-weight="700" fill="#f4fbf5">Workflows</text>
+    </g>
+    <g transform="translate(812 115)"><use href="#arrow" /></g>
+
+    <!-- Chapter 4 -->
+    <g transform="translate(925 115)" filter="url(#cardShadow)">
+      <use href="#card" />
+      <g transform="translate(0 -30)"><use href="#iconAgents" /></g>
+      <line x1="-50" y1="14" x2="50" y2="14" stroke="#7cff6b" stroke-opacity="0.3" stroke-width="2" />
+      <text y="40" font-size="18" fill="#9ed7aa">Chapter 4</text>
+      <text y="68" font-size="24" font-weight="700" fill="#f4fbf5">Agents</text>
+    </g>
+    <g transform="translate(1017 115)"><use href="#arrow" /></g>
+
+    <!-- Chapter 5 -->
+    <g transform="translate(1130 115)" filter="url(#cardShadow)">
+      <use href="#card" />
+      <g transform="translate(0 -30)"><use href="#iconSkills" /></g>
+      <line x1="-50" y1="14" x2="50" y2="14" stroke="#7cff6b" stroke-opacity="0.3" stroke-width="2" />
+      <text y="40" font-size="18" fill="#9ed7aa">Chapter 5</text>
+      <text y="68" font-size="24" font-weight="700" fill="#f4fbf5">Skills</text>
+    </g>
+    <g transform="translate(1222 115)"><use href="#arrow" /></g>
+
+    <!-- Chapter 6 -->
+    <g transform="translate(1335 115)" filter="url(#cardShadow)">
+      <use href="#card" />
+      <g transform="translate(0 -30)"><use href="#iconMCP" /></g>
+      <line x1="-50" y1="14" x2="50" y2="14" stroke="#7cff6b" stroke-opacity="0.3" stroke-width="2" />
+      <text y="40" font-size="18" fill="#9ed7aa">Chapter 6</text>
+      <text y="68" font-size="24" font-weight="700" fill="#f4fbf5">MCP</text>
+    </g>
+    <g transform="translate(1427 115)"><use href="#arrow" /></g>
+
+    <!-- Chapter 7 -->
+    <g transform="translate(1540 115)" filter="url(#cardShadow)">
+      <use href="#card" />
+      <g transform="translate(0 -30)"><use href="#iconComplete" /></g>
+      <line x1="-50" y1="14" x2="50" y2="14" stroke="#7cff6b" stroke-opacity="0.3" stroke-width="2" />
+      <text y="40" font-size="18" fill="#9ed7aa">Chapter 7</text>
+      <text y="68" font-size="24" font-weight="700" fill="#f4fbf5">Complete</text>
+    </g>
+  </g>
+</svg>
