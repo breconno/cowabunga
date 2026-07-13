@@ -172,10 +172,10 @@ After you receive a response, you can exit the CLI:
 
 ---
 
-<details>
+<details open>
 <summary>🎬 See it in action!</summary>
 
-![Hello Demo (TMNT theme)](assets/hello-demo-tmnt.svg)
+<img src="assets/hello-demo-tmnt.svg" alt="Hello Demo (TMNT theme)" width="800"/>
 
 *Demo output varies. Your model, tools, and responses will differ from what's shown here.*
 

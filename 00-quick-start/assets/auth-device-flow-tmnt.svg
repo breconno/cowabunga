@@ -1,34 +1,61 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1400" height="760" viewBox="0 0 1400 760" role="img" aria-labelledby="title desc">
   <title id="title">TMNT Device Authorization Flow</title>
-  <desc id="desc">Five-step TMNT-themed diagram showing login with device code.</desc>
-  <rect width="1400" height="760" fill="#102a1b" />
+  <desc id="desc">Five-step dojo-themed diagram showing login with device code.</desc>
+
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#081411" />
+      <stop offset="45%" stop-color="#0c231c" />
+      <stop offset="100%" stop-color="#03100e" />
+    </linearGradient>
+    <linearGradient id="slash" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#7cff6b" stop-opacity="0" />
+      <stop offset="50%" stop-color="#7cff6b" stop-opacity="0.5" />
+      <stop offset="100%" stop-color="#7cff6b" stop-opacity="0" />
+    </linearGradient>
+    <filter id="neonGlow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="4" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <pattern id="grate" width="42" height="42" patternUnits="userSpaceOnUse">
+      <path d="M0 0 L42 0 M0 0 L0 42" stroke="#7cff6b" stroke-opacity="0.05" stroke-width="1.5" />
+    </pattern>
+  </defs>
+
+  <rect width="1400" height="760" fill="url(#bg)" />
+  <rect width="1400" height="760" fill="url(#grate)" />
+  <rect x="60" y="40" width="1280" height="30" fill="url(#slash)" transform="rotate(-2 60 40)" />
+
   <text x="700" y="72" text-anchor="middle" font-size="40" font-family="Verdana, Geneva, sans-serif" fill="#f3fff6" font-weight="700">Device Authorization Flow</text>
-  <text x="700" y="110" text-anchor="middle" font-size="24" font-family="Verdana, Geneva, sans-serif" fill="#9ed7aa">TMNT Quick Start login path</text>
+  <text x="700" y="110" text-anchor="middle" font-size="24" font-family="Verdana, Geneva, sans-serif" fill="#7cff6b">Dojo Quick Start login path</text>
 
   <g font-family="Verdana, Geneva, sans-serif">
-    <rect x="90" y="170" width="1220" height="92" rx="14" fill="#1f5f31" stroke="#6ddf8f" stroke-width="2" />
-    <circle cx="140" cy="216" r="25" fill="#ff8b2b" />
-    <text x="140" y="224" text-anchor="middle" font-size="24" fill="#111">1</text>
+    <rect x="90" y="170" width="1220" height="92" rx="14" fill="#123222" stroke="#7cff6b" stroke-opacity="0.5" stroke-width="2" />
+    <circle cx="140" cy="216" r="25" fill="#7cff6b" filter="url(#neonGlow)" />
+    <text x="140" y="224" text-anchor="middle" font-size="24" fill="#08150f" font-weight="700">1</text>
     <text x="190" y="226" font-size="28" fill="#e9ffee">Run /login and copy the one-time code.</text>
 
-    <rect x="90" y="284" width="1220" height="92" rx="14" fill="#1f5f31" stroke="#6ddf8f" stroke-width="2" />
-    <circle cx="140" cy="330" r="25" fill="#ff8b2b" />
-    <text x="140" y="338" text-anchor="middle" font-size="24" fill="#111">2</text>
+    <rect x="90" y="284" width="1220" height="92" rx="14" fill="#123222" stroke="#7cff6b" stroke-opacity="0.5" stroke-width="2" />
+    <circle cx="140" cy="330" r="25" fill="#7cff6b" filter="url(#neonGlow)" />
+    <text x="140" y="338" text-anchor="middle" font-size="24" fill="#08150f" font-weight="700">2</text>
     <text x="190" y="340" font-size="28" fill="#e9ffee">Open github.com/login/device in your browser.</text>
 
-    <rect x="90" y="398" width="1220" height="92" rx="14" fill="#1f5f31" stroke="#6ddf8f" stroke-width="2" />
-    <circle cx="140" cy="444" r="25" fill="#ff8b2b" />
-    <text x="140" y="452" text-anchor="middle" font-size="24" fill="#111">3</text>
+    <rect x="90" y="398" width="1220" height="92" rx="14" fill="#123222" stroke="#7cff6b" stroke-opacity="0.5" stroke-width="2" />
+    <circle cx="140" cy="444" r="25" fill="#7cff6b" filter="url(#neonGlow)" />
+    <text x="140" y="452" text-anchor="middle" font-size="24" fill="#08150f" font-weight="700">3</text>
     <text x="190" y="454" font-size="28" fill="#e9ffee">Paste the code and continue.</text>
 
-    <rect x="90" y="512" width="1220" height="92" rx="14" fill="#1f5f31" stroke="#6ddf8f" stroke-width="2" />
-    <circle cx="140" cy="558" r="25" fill="#ff8b2b" />
-    <text x="140" y="566" text-anchor="middle" font-size="24" fill="#111">4</text>
+    <rect x="90" y="512" width="1220" height="92" rx="14" fill="#123222" stroke="#7cff6b" stroke-opacity="0.5" stroke-width="2" />
+    <circle cx="140" cy="558" r="25" fill="#7cff6b" filter="url(#neonGlow)" />
+    <text x="140" y="566" text-anchor="middle" font-size="24" fill="#08150f" font-weight="700">4</text>
     <text x="190" y="568" font-size="28" fill="#e9ffee">Authorize Copilot CLI for this account.</text>
 
-    <rect x="90" y="626" width="1220" height="92" rx="14" fill="#1f5f31" stroke="#6ddf8f" stroke-width="2" />
-    <circle cx="140" cy="672" r="25" fill="#ff8b2b" />
-    <text x="140" y="680" text-anchor="middle" font-size="24" fill="#111">5</text>
+    <rect x="90" y="626" width="1220" height="92" rx="14" fill="#123222" stroke="#7cff6b" stroke-opacity="0.5" stroke-width="2" />
+    <circle cx="140" cy="672" r="25" fill="#7cff6b" filter="url(#neonGlow)" />
+    <text x="140" y="680" text-anchor="middle" font-size="24" fill="#08150f" font-weight="700">5</text>
     <text x="190" y="682" font-size="28" fill="#e9ffee">Return to terminal. You are authenticated and ready.</text>
   </g>
 </svg>
