@@ -72,7 +72,7 @@ This school focuses on **GitHub Copilot CLI**, bringing AI assistance directly t
 
 ## 📚 Course Structure
 
-![Cowabunga College learning path](assets/learning-path.png)
+![Cowabunga College learning path](assets/learning-path.svg)
 
 | Chapter | Title | What You'll Build |
 |:-------:|-------|-------------------|
