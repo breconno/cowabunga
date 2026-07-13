@@ -115,7 +115,7 @@ Need backup from the dojo support crew?
 **How to contribute to Cowabunga College:**
 
 1. Fork this repository and clone it to your machine
-2. Create a feature branch (`git checkout -b my-improvement`)
+2. Create a feature branch (`git checkout -b my-dojo`)
 3. Make your changes
 4. Submit a pull request
 
