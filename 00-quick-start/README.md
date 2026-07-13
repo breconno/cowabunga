@@ -268,7 +268,7 @@ copilot
 
 **Safety tip**: Read `git diff --staged` before every commit so you verify exactly what will be recorded.
 
-> **Note:** This Quick Start chapter uses a temporary TMNT Python stub at `samples/tmnt-stub/pizza_recipe_app.py` for explanation practice. You are not running the app in this step.
+> **Note:** This Quick Start chapter uses an intentionally incomplete TMNT Python scaffold at `samples/pizza-recipe-project/pizza_recipe.py`. Future lessons will guide you through filling it in.
 
 ### Step 3: Try Copilot CLI with a Temporary TMNT Stub
 
@@ -278,12 +278,12 @@ Make sure you're at the repository root first:
 # Works from any subfolder inside this repository
 cd "$(git rev-parse --show-toplevel)"
 copilot
-> What does @samples/tmnt-stub/pizza_recipe_app.py do?
+> What does @samples/pizza-recipe-project/pizza_recipe.py do?
 ```
 
-**Expected output**: A short explanation of the TMNT-themed placeholder file and its simple helper functions.
+**Expected output**: An explanation that this is a stub Python script containing placeholders that will be completed in future lessons.
 
-This step uses a temporary stub file while the full TMNT sample app is still being built.
+This step uses an intentionally incomplete stub while the full TMNT sample app is built throughout the course.
 It keeps this quick-start exercise simple and focused on learning how to ask Copilot CLI to explain code.
 You are not running the Python app yet.
 
