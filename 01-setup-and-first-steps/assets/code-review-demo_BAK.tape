@@ -1,17 +1,16 @@
 # 01-setup-and-first-steps: Review a file for code quality issues and suggest improvements
 # Auto-generated from demos.json - Real copilot execution
-# Cowabunga College dojo theme
 
 Output code-review-demo.gif
 
 Set FontSize 18
 Set Width 1000
 Set Height 600
-Set Theme {"name":"Dojo","black":"#0a1f16","red":"#c23b3b","green":"#7cff6b","yellow":"#e8a33d","blue":"#4a8a72","purple":"#5ee3a0","cyan":"#7cff6b","white":"#d7ffe0","brightBlack":"#123222","brightRed":"#e05a5a","brightGreen":"#aaffb0","brightYellow":"#ffe08a","brightBlue":"#7cb8a2","brightPurple":"#9dffce","brightCyan":"#aaffb0","brightWhite":"#f4fbf5","background":"#0c231c","foreground":"#d7ffe0","cursor":"#7cff6b","selection":"#1a4a30"}
+Set Theme "Dracula"
 Set Padding 20
-Set BorderRadius 12
+Set BorderRadius 8
 Set Margin 10
-Set MarginFill "#03100e"
+Set MarginFill "#282a36"
 Set Framerate 10
 
 # Human typing speed
@@ -24,23 +23,17 @@ Enter
 # Wait for copilot to start
 Sleep 5s
 
-
-# Accept the trusting the folder
+# Execute the prompt
+Type "Review @samples/book-app-project/book_app.py for code quality issues and suggest improvements"
+Sleep 2s
 Enter
+
+# Wait for response (with periodic nudges to keep input visible)
 Sleep 3s
-
-# Enter the prompt
-Type "Review @samples/pizza-recipe-project/pizza_recipe.py for code quality issues and suggest improvements"
-Sleep 1s
-Enter
-
-# Wait for response (with periodic nudges to keep input visible)
-Sleep 15
-
-# Accept Yes to the upvote suggestions
-Enter
-
-# Wait for response (with periodic nudges to keep input visible)
+Hide
+Type " "
+Backspace
+Show
 Sleep 3s
 Hide
 Type " "

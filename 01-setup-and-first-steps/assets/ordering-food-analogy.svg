@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+  <title id="title">Three Ways to Use GitHub Copilot CLI</title>
+  <desc id="desc">Three dojo-themed cards comparing Plan, Interactive, and Programmatic modes.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#081411" /><stop offset="45%" stop-color="#0c231c" /><stop offset="100%" stop-color="#03100e" />
+    </linearGradient>
+    <linearGradient id="cardBg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0c231c" /><stop offset="100%" stop-color="#03100e" />
+    </linearGradient>
+    <linearGradient id="headerGreen" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#123222" /><stop offset="100%" stop-color="#0c231c" /></linearGradient>
+    <linearGradient id="headerAmber" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#5a4414" /><stop offset="100%" stop-color="#3a2c0e" /></linearGradient>
+    <linearGradient id="headerRed" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#5a1f1f" /><stop offset="100%" stop-color="#3a1414" /></linearGradient>
+    <linearGradient id="cheese" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#ffe08a" /><stop offset="100%" stop-color="#e8a33d" /></linearGradient>
+    <pattern id="grate" width="36" height="36" patternUnits="userSpaceOnUse">
+      <path d="M0 0 L36 0 M0 0 L0 36" stroke="#7cff6b" stroke-opacity="0.05" stroke-width="1.3" />
+    </pattern>
+    <filter id="softShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#000" flood-opacity="0.5" />
+    </filter>
+    <filter id="neonGlow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
+    </filter>
+    <g id="pizzaBlade">
+      <path d="M0,0 L22,-5.5 A24,24 0 0 1 22,5.5 Z" fill="url(#cheese)" stroke="#7c4a12" stroke-width="1.8" stroke-linejoin="round" />
+      <circle cx="11" cy="-1.7" r="1.6" fill="#c23b3b" /><circle cx="14.5" cy="2.3" r="1.3" fill="#c23b3b" />
+    </g>
+    <g id="turtle">
+      <path d="M-30,36 C-30,-4 30,-4 30,36 L30,48 C30,54 24,58 16,58 L-16,58 C-24,58 -30,54 -30,48 Z" fill="#1a4a30" stroke="#7cff6b" stroke-width="2.5" />
+      <rect x="-30" y="6" width="60" height="14" fill="#0a1f16" stroke="#7cff6b" stroke-width="1.5" />
+    </g>
+  </defs>
+
+  <rect width="1200" height="800" fill="url(#bg)" />
+  <rect width="1200" height="800" fill="url(#grate)" />
+
+  <text x="600" y="70" text-anchor="middle" font-family="Verdana, Geneva, sans-serif" font-size="42" font-weight="700" fill="#f4fbf5">Three Ways to Use GitHub Copilot CLI</text>
+  <line x1="200" y1="94" x2="1000" y2="94" stroke="#7cff6b" stroke-opacity="0.4" stroke-width="2" />
+
+  <!-- Card 1: Plan Mode -->
+  <g transform="translate(60 140)" filter="url(#softShadow)">
+    <rect width="330" height="520" rx="18" fill="url(#cardBg)" stroke="#7cff6b" stroke-width="2.5" />
+    <path d="M0,18 A18,18 0 0 1 18,0 L312,0 A18,18 0 0 1 330,18 L330,70 L0,70 Z" fill="url(#headerGreen)" />
+    <text x="165" y="45" text-anchor="middle" font-family="Verdana, Geneva, sans-serif" font-size="26" font-weight="700" fill="#f4fbf5">Plan Mode</text>
+
+    <rect x="20" y="90" width="290" height="270" rx="12" fill="#0a1f16" stroke="#7cff6b" stroke-opacity="0.25" stroke-width="2" />
+    <g transform="translate(90 300)"><use href="#turtle" /><path d="M30,10 L48,4 M30,22 L48,26" stroke="#c23b3b" stroke-width="4" stroke-linecap="round" /></g>
+    <g transform="translate(190 210)">
+      <rect x="-15" y="-10" width="110" height="140" rx="8" fill="#0f2c22" stroke="#7cff6b" stroke-width="2.5" />
+      <path d="M8,110 L8,80 L45,65 L45,35 L75,18" fill="none" stroke="#e8a33d" stroke-width="3" stroke-dasharray="2 8" stroke-linecap="round" />
+      <circle cx="8" cy="110" r="6" fill="none" stroke="#f4fbf5" stroke-width="2.5" />
+      <circle cx="45" cy="65" r="5" fill="none" stroke="#f4fbf5" stroke-width="2.5" />
+      <g transform="translate(75 15) scale(0.6)" filter="url(#neonGlow)">
+        <use href="#pizzaBlade" /><use href="#pizzaBlade" transform="rotate(90)" /><use href="#pizzaBlade" transform="rotate(180)" /><use href="#pizzaBlade" transform="rotate(270)" />
+      </g>
+    </g>
+
+    <line x1="20" y1="382" x2="310" y2="382" stroke="#7cff6b" stroke-opacity="0.25" stroke-width="2" />
+    <text x="20" y="416" font-family="Verdana, Geneva, sans-serif" font-size="21" font-weight="700" fill="#f4fbf5">Scroll route to the dojo</text>
+    <text x="20" y="452" font-family="Verdana, Geneva, sans-serif" font-size="16" fill="#b9efc7">Map out the route, review stops,</text>
+    <text x="20" y="475" font-family="Verdana, Geneva, sans-serif" font-size="16" fill="#b9efc7">agree on the plan, then strike.</text>
+  </g>
+
+  <!-- Card 2: Interactive Mode -->
+  <g transform="translate(435 140)" filter="url(#softShadow)">
+    <rect width="330" height="520" rx="18" fill="url(#cardBg)" stroke="#e8a33d" stroke-width="2.5" />
+    <path d="M0,18 A18,18 0 0 1 18,0 L312,0 A18,18 0 0 1 330,18 L330,70 L0,70 Z" fill="url(#headerAmber)" />
+    <text x="165" y="45" text-anchor="middle" font-family="Verdana, Geneva, sans-serif" font-size="26" font-weight="700" fill="#f4fbf5">Interactive Mode</text>
+
+    <rect x="20" y="90" width="290" height="270" rx="12" fill="#0a1f16" stroke="#e8a33d" stroke-opacity="0.25" stroke-width="2" />
+    <g transform="translate(105 260)"><use href="#turtle" /></g>
+    <g transform="translate(225 260) scale(-1,1)"><use href="#turtle" /><path d="M30,10 L48,4 M30,22 L48,26" stroke="#c23b3b" stroke-width="4" stroke-linecap="round" /></g>
+    <g transform="translate(95 190)">
+      <path d="M0,20 a20,20 0 1,1 40,0 a20,20 0 0,1 -14,19 l-6,10 l-2,-10 a20,20 0 0,1 -18,-19 Z" fill="#0f2c22" stroke="#7cff6b" stroke-width="2.5" />
+    </g>
+    <g transform="translate(215 210)">
+      <path d="M0,16 a16,16 0 1,1 32,0 a16,16 0 0,1 -11,15 l-5,8 l-1,-8 a16,16 0 0,1 -15,-15 Z" fill="#0f2c22" stroke="#e8a33d" stroke-width="2.5" />
+    </g>
+
+    <line x1="20" y1="382" x2="310" y2="382" stroke="#e8a33d" stroke-opacity="0.3" stroke-width="2" />
+    <text x="20" y="416" font-family="Verdana, Geneva, sans-serif" font-size="21" font-weight="700" fill="#f4fbf5">Talking to the sensei</text>
+    <text x="20" y="452" font-family="Verdana, Geneva, sans-serif" font-size="16" fill="#f0d3a8">Real-time conversation, ask</text>
+    <text x="20" y="475" font-family="Verdana, Geneva, sans-serif" font-size="16" fill="#f0d3a8">questions, customize your order.</text>
+  </g>
+
+  <!-- Card 3: Programmatic Mode -->
+  <g transform="translate(810 140)" filter="url(#softShadow)">
+    <rect width="330" height="520" rx="18" fill="url(#cardBg)" stroke="#c23b3b" stroke-width="2.5" />
+    <path d="M0,18 A18,18 0 0 1 18,0 L312,0 A18,18 0 0 1 330,18 L330,70 L0,70 Z" fill="url(#headerRed)" />
+    <text x="165" y="45" text-anchor="middle" font-family="Verdana, Geneva, sans-serif" font-size="26" font-weight="700" fill="#f4fbf5">Programmatic Mode</text>
+
+    <rect x="20" y="90" width="290" height="270" rx="12" fill="#0a1f16" stroke="#c23b3b" stroke-opacity="0.25" stroke-width="2" />
+    <g transform="translate(225 155)">
+      <rect x="-60" y="-25" width="130" height="130" fill="#2a3d33" stroke="#7cff6b" stroke-opacity="0.4" stroke-width="2" />
+      <rect x="-48" y="-12" width="78" height="56" rx="4" fill="#0f2c22" stroke="#e8a33d" stroke-width="2.5" />
+      <rect x="-40" y="-2" width="60" height="8" rx="2" fill="url(#cheese)" />
+      <rect x="-40" y="10" width="60" height="8" rx="2" fill="url(#cheese)" opacity="0.7" />
+      <circle cx="0" cy="30" r="14" fill="#1a4a30" stroke="#7cff6b" stroke-width="2" />
+      <rect x="-14" y="27" width="28" height="7" fill="#0a1f16" />
+    </g>
+    <g transform="translate(90 260)">
+      <rect x="-60" y="-25" width="120" height="48" rx="15" fill="#1c3d54" stroke="#7cff6b" stroke-opacity="0.5" stroke-width="2" />
+      <rect x="-42" y="-45" width="84" height="26" rx="8" fill="#1c3d54" stroke="#7cff6b" stroke-opacity="0.5" stroke-width="2" />
+      <circle cx="-35" cy="22" r="12" fill="#0a1f16" stroke="#7cff6b" stroke-width="1.8" />
+      <circle cx="35" cy="22" r="12" fill="#0a1f16" stroke="#7cff6b" stroke-width="1.8" />
+    </g>
+
+    <line x1="20" y1="382" x2="310" y2="382" stroke="#c23b3b" stroke-opacity="0.3" stroke-width="2" />
+    <text x="20" y="416" font-family="Verdana, Geneva, sans-serif" font-size="21" font-weight="700" fill="#f4fbf5">Dojo takeout window</text>
+    <text x="20" y="452" font-family="Verdana, Geneva, sans-serif" font-size="16" fill="#f0b3ab">Quick specific request — get</text>
+    <text x="20" y="475" font-family="Verdana, Geneva, sans-serif" font-size="16" fill="#f0b3ab">your result fast.</text>
+  </g>
+
+  <!-- flow footer -->
+  <g font-family="Verdana, Geneva, sans-serif" font-size="26" font-weight="700">
+    <text x="330" y="722" fill="#7cff6b">Plan</text>
+    <path d="M400,714 L450,714 L440,706 M450,714 L440,722" stroke="#7cff6b" stroke-width="3" fill="none" />
+    <text x="470" y="722" fill="#e8a33d">Interactive</text>
+    <path d="M630,714 L680,714 L670,706 M680,714 L670,722" stroke="#e8a33d" stroke-width="3" fill="none" />
+    <text x="700" y="722" fill="#c23b3b">Programmatic</text>
+    <path d="M900,714 L940,714 L930,706 M940,714 L930,722" stroke="#c23b3b" stroke-width="3" fill="none" />
+  </g>
+  <line x1="300" y1="748" x2="900" y2="748" stroke="#7cff6b" stroke-opacity="0.25" stroke-width="1.5" />
+  <text x="600" y="778" text-anchor="middle" font-family="Verdana, Geneva, sans-serif" font-size="20" font-style="italic" fill="#b9efc7">From collaborative planning to quick results.</text>
+</svg>

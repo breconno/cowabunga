@@ -187,32 +187,6 @@ After you receive a response, you can exit the CLI:
 
 ### Step 2: Bash Fundamentals for Agentic Operations
 
-Before working with the Python sample app, build a quick Bash foundation so the next chapters feel easier.
-
-Bash is a shell (a text interface where you run commands). Agentic operations means using Copilot CLI to help inspect, edit, and validate files from the terminal.
-
-Run these commands from the repository root:
-
-```bash
-# Show where you are
-pwd
-
-# List files and folders in the current location
-ls
-
-# List files with extra details (permissions, size, modified time)
-ls -la
-
-# Move into Chapter 00 and list what is there
-cd 00-quick-start
-ls
-
-# Return to the repository root
-cd ..
-```
-
-Now do the same workflow with Copilot CLI prompts (one prompt per command):
-
 ```text
 copilot
 > What workspace and path I am currently in?
@@ -221,7 +195,7 @@ copilot
 
 > Run `ls -la` and explain what the extra columns and hidden entries mean.
 
-> Move into `00-quick-start` then summarize what files are there.
+> cd into `00-quick-start` then summarize what files are there.
 
 > Go back to the repository root with and confirm where we are now.
 ```
@@ -231,27 +205,6 @@ copilot
 Node.js and JavaScript tooling are covered hands-on in [Chapter 03](../03-development-workflows/README.md), then used in a mixed-toolchain capstone in [Chapter 07](../07-putting-it-together/README.md).
 
 #### Git Fundamentals for Safe AI-Assisted Workflows
-
-Git is a version control system (it tracks file changes over time). These commands help you check what changed before accepting or keeping AI-generated edits.
-
-```bash
-# See changed files
-git status
-
-# Stage one file (put it in the staging area, the "ready to commit" list)
-git add 00-quick-start/README.md
-
-# Review exactly what is staged
-git diff --staged
-
-# Save staged changes with a message
-git commit -m "docs: update chapter 00 bash-first onboarding"
-
-# Show recent commits in one-line format
-git log --oneline
-```
-
-Now do the same Git workflow with Copilot CLI prompts (one prompt per command):
 
 ```text
 copilot

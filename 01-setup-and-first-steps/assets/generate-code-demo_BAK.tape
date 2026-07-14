@@ -1,7 +1,7 @@
-# 01-setup-and-first-steps: Explain what a Python file does in simple terms
+# 01-setup-and-first-steps: Generate a Python function from a natural language description
 # Auto-generated from demos.json - Real copilot execution
 
-Output explain-code-demo.gif
+Output generate-code-demo.gif
 
 Set FontSize 18
 Set Width 1000
@@ -24,7 +24,7 @@ Enter
 Sleep 5s
 
 # Execute the prompt
-Type "Explain what @samples/pizza-recipe-project/pizza_recipe.py does in simple terms"
+Type "Write a Python function that takes a list of books and returns statistics: total count, number read, number unread, oldest and newest book"
 Sleep 2s
 Enter
 
@@ -84,17 +84,7 @@ Hide
 Type " "
 Backspace
 Show
-Sleep 3s
-Hide
-Type " "
-Backspace
-Show
-Sleep 3s
-Hide
-Type " "
-Backspace
-Show
-Sleep 1s
+Sleep 2s
 
 # Nudge TUI to scroll to input area
 Type " "

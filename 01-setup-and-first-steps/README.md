@@ -9,7 +9,7 @@ weight: 2
 ---
 -->
 
-![Chapter 01: First Steps](assets/chapter-header.png)
+![Chapter 01: First Steps](assets/chapter-header.svg)
 
 > **Watch AI find bugs instantly, explain confusing code, and generate working scripts. Then learn three different ways to use GitHub Copilot CLI.**
 
@@ -31,7 +31,7 @@ By the end of this chapter, you'll be able to:
 
 # Your First Copilot CLI Experience
 
-<img src="assets/first-copilot-experience.png" alt="Developer sitting at a desk with code on the monitor and glowing particles representing AI assistance" width="800"/>
+<img src="assets/first-copilot-experience.svg" alt="TMNT sitting at a desk with code on the monitor and glowing particles representing AI assistance" width="800"/>
 
 Jump right in and see what Copilot CLI can do.
 
@@ -48,13 +48,13 @@ copilot
 Try these beginner-friendly prompts:
 
 ```
-> Explain what a dataclass is in Python in simple terms
+> Explain what a LLM in simple terms
 
-> Write a function that sorts a list of dictionaries by a specific key
+> Write [stub for something about agents]
 
-> What's the difference between a list and a tuple in Python?
+> What's the difference between skills and hooks?
 
-> Give me 5 best practices for writing clean Python code
+> Give me 5 best practices for writing agent instructions ?
 ```
 
 Don't use Python? No problem! Just ask questions about your language of choice.
@@ -87,7 +87,7 @@ copilot
 Once inside the interactive Copilot CLI session, run the following:
 
 ```
-> Review @samples/tmnt-stub/pizza_recipe_app.py for code quality issues and suggest improvements
+> Review @samples/pizza-recipe-project/pizza_recipe.py for code quality issues and suggest improvements
 ```
 
 > 💡 **What's the `@` symbol used for?** The `@` symbol tells Copilot CLI to read a file. You'll learn all about this in Chapter 02. For now, just copy the command exactly as shown.
@@ -114,7 +114,7 @@ Once inside the interactive Copilot CLI session, run the following:
 Ever stared at code wondering what it does? Try this in your Copilot CLI session:
 
 ```
-> Explain what @samples/book-app-project/books.py does in simple terms
+> Explain what @samples/pizza-recipe-project/pizza_recipe.py does in simple terms
 ```
 
 ---
@@ -132,34 +132,6 @@ Ever stared at code wondering what it does? Try this in your Copilot CLI session
 
 **What happens**: (your output will differ) Copilot CLI reads the file, understands the code, and explains it in plain English.
 
-```
-This is a book collection management module using Python dataclasses.
-
-Think of it like a digital bookshelf:
-- Book is a dataclass - a simple way to store book information (title, author, year, read status)
-- BookCollection manages the entire collection and handles saving/loading
-
-Key components:
-
-1. @dataclass decorator (line 8)
-   - Automatically creates __init__, __repr__, etc.
-   - Clean way to define data structures in Python
-
-2. BookCollection class (line 16)
-   - Maintains a list of Book objects
-   - Handles persistence with JSON file I/O
-   - load_books() reads from data.json
-   - save_books() writes to data.json using asdict()
-
-3. Book operations:
-   - add_book() - creates and saves new books
-   - find_book_by_title() - searches collection
-   - mark_as_read() - updates read status
-   - find_by_author() - filters by author name
-
-Common pattern: Read from JSON → Work with Python objects → Write back to JSON
-```
-
 **The takeaway**: Complex code explained like a patient mentor would explain it.
 
 ---
@@ -169,8 +141,8 @@ Common pattern: Read from JSON → Work with Python objects → Write back to JS
 Need a function you'd otherwise spend 15 minutes googling? Still in your session:
 
 ```
-> Write a Python function that takes a list of books and returns statistics: 
-  total count, number read, number unread, oldest and newest book
+> Write a Python function that takes a list of pizza recipes from the dojo kitchen and returns: total recipe count, total served, itemized number served, and most recent served
+Sleep 2s
 ```
 
 ---
@@ -200,7 +172,7 @@ When you're done exploring, exit the session:
 
 # Modes and Commands
 
-<img src="assets/modes-and-commands.png" alt="Futuristic control panel with glowing screens, dials, and equalizers representing Copilot CLI modes and commands" width="800"/>
+<img src="assets/modes-and-commands.svg" alt="TMNT theme control panel with glowing screens, dials, and equalizers representing Copilot CLI modes and commands" width="800"/>
 
 You've just seen what Copilot CLI can do. Now let's understand *how* to use these capabilities effectively. The key is knowing which of the three interaction modes to use for different situations.
 
@@ -210,17 +182,17 @@ You've just seen what Copilot CLI can do. Now let's understand *how* to use thes
 
 ## 🧩 Real-World Analogy: Dining Out
 
-Think of using GitHub Copilot CLI like going out to eat. From planning the trip to placing your order, different situations call for different approaches:
+Think of using GitHub Copilot CLI like going out for take out from you favorice pizza joint. From planning the trip to placing your order, different situations call for different approaches:
 
 | Mode | Dining Analogy | When to Use |
 |------|----------------|-------------|
 | **Plan** | GPS route to the restaurant | Complex tasks - map out the route, review stops, agree on the plan, then drive |
-| **Interactive** | Talking to the waiter | Exploration and iteration - ask questions, customize, get real-time feedback |
+| **Interactive** | Talking to the employee over the phone | Exploration and iteration - ask questions, customize, get real-time feedback |
 | **Programmatic** | Drive-through ordering | Quick, specific tasks - stay in your environment, get a result fast |
 
-Just like dining out, you'll naturally learn when each approach feels right.
+Just like pizza, you'll naturally learn when each approach feels right.
 
-<img src="assets/ordering-food-analogy.png" alt="Three Ways to Use GitHub Copilot CLI - Plan Mode (GPS route to restaurant), Interactive Mode (talking to waiter), Programmatic Mode (drive-through)" width="800"/>
+<img src="assets/ordering-food-analogy.svg" alt="Three Ways to Use GitHub Copilot CLI - Plan Mode (GPS route to restaurant), Interactive Mode (talking to waiter), Programmatic Mode (drive-through)" width="800"/>
 
 *Choose your mode based on the task: Plan for mapping it out first, Interactive for back-and-forth collaboration, Programmatic for quick one-shot results*
 
@@ -288,7 +260,7 @@ Plan mode helps you create a step-by-step plan before writing any code. Use the 
 ```bash
 copilot
 
-> /plan Add a "mark as read" command to the book app
+> /plan Build out the TMNT pizza recipe app
 ```
 
 > 💡 **Tip**: **Shift+Tab** cycles between modes: Interactive → Plan → Autopilot. Press it anytime during an interactive session to switch modes without typing a command.
@@ -304,30 +276,31 @@ copilot --plan
 ```
 📋 Implementation Plan
 
-Step 1: Update the command handler in book_app.py
-  - Add new elif branch for "mark" command
-  - Create handle_mark_as_read() function
+Step 1: Add the pizza recipes
+  - Create three TMNT-themed PizzaRecipe values
+  - Add them to the RECIPES collection
 
-Step 2: Implement the handler function
-  - Prompt user for book title
-  - Call collection.mark_as_read(title)
-  - Display success/failure message
+Step 2: Implement the recipe functions
+  - Make list_recipes() return all available recipes
+  - Make find_recipe() search recipe names
+  - Handle recipe names without case sensitivity
 
-Step 3: Update help text
-  - Add "mark" to available commands list
-  - Document the command usage
+Step 3: Connect the terminal menu
+  - Display the menu from utils.py
+  - Handle list and find choices
+  - Show a clear message when no recipe matches
 
 Step 4: Test the flow
-  - Add a book
-  - Mark it as read
-  - Verify status changes in list output
+  - List all pizza recipes
+  - Find a recipe by name
+  - Verify an unknown recipe shows the correct message
 
 Proceed with implementation? [Y/n]
 ```
 
-**Key insight**: Plan mode lets you review and modify the approach before any code is written. Once a plan is complete, you can even tell Copilot CLI to save it to a file for later reference. For example, "Save this plan to `mark_as_read_plan.md`" would create a markdown file with the plan details.
+**Key insight**: Plan mode lets you review and modify the approach before any code is written. Once a plan is complete, you can even tell Copilot CLI to save it to a file for later reference. For example, "Save this plan to `pizza-recipe-plan.md`" would create a markdown file with the plan details.
 
-> 💡 **Want something more complex?** Try: `/plan Add search and filter capabilities to the book app`. Plan mode scales from simple features to full applications.
+> 💡 **Want something more complex?** Try: `/plan Add ingredient search and filtering to the pizza recipe app`. Plan mode scales from simple features to full applications.
 
 > 📚 **Autopilot mode**: You may have noticed Shift+Tab cycles through a third mode called **Autopilot**. In autopilot mode, Copilot works through an entire plan without waiting for your input after each step — like handing a task to a colleague and saying "let me know when you're finished." The typical workflow is plan → accept → autopilot, which means you need to be good at writing plans first. You can also launch directly into autopilot with `copilot --autopilot`. Get comfortable with Interactive and Plan modes first, then see the [official docs](https://docs.github.com/copilot/concepts/agents/copilot-cli/autopilot) when you're ready.
 
@@ -335,18 +308,18 @@ Proceed with implementation? [Y/n]
 
 ### Mode 3: Programmatic Mode
 
-<img src="assets/programmatic-mode.png" alt="Programmatic Mode - Like using a drive-through for a quick order" width="250"/>
+<img src="assets/programmatic-mode.svg" alt="Programmatic Mode - Like using a drive-through for a quick order" width="250"/>
 
 **Best for**: Automation, scripts, CI/CD, single-shot commands. Like using a drive-through for a quick order without needing to talk to a waiter.
 
 Use the `-p` flag for one-time commands that don't need interaction:
 
 ```bash
-# Generate code
-copilot -p "Write a function that checks if a number is even or odd"
+# Generate TMNT-themed code
+copilot -p "Write a Python function that filters pizza recipes by ingredient"
 
-# Get quick help
-copilot -p "How do I read a JSON file in Python?"
+# Learn about agent operations
+copilot -p "Explain what an AI agent does in simple terms"
 ```
 
 **Key insight**: Programmatic mode gives you a quick answer and exits. No conversation, just input → output.
@@ -531,7 +504,7 @@ Start Copilot and use follow-up prompts to iteratively improve the book app:
 ```bash
 copilot
 
-> Review @samples/book-app-project/book_app.py - what could be improved?
+> Review @samples/pizza-recipe-project/pizza_recipe.py - what could be improved?
 
 > Refactor the if/elif chain into a more maintainable structure
 
@@ -547,7 +520,7 @@ Use `/plan` to have Copilot CLI map out an implementation before writing any cod
 ```bash
 copilot
 
-> /plan Add a search feature to the book app that can find books by title or author
+> /plan Add a search feature to the pizza recipe app that can find pizza by ingredient or chef
 
 # Review the plan
 # Approve or modify
@@ -560,32 +533,21 @@ The `-p` flag lets you run Copilot CLI directly from your terminal without enter
 
 ```bash
 # Review all Python files in the book app
-for file in samples/book-app-project/*.py; do
+for file in samples/pizza-recipe-project/*.py; do
   echo "Reviewing $file..."
   copilot --allow-all -p "Quick code quality review of @$file - critical issues only"
 done
-```
-
-**PowerShell (Windows):**
-
-```powershell
-# Review all Python files in the book app
-Get-ChildItem samples/book-app-project/*.py | ForEach-Object {
-  $relativePath = "samples/book-app-project/$($_.Name)";
-  Write-Host "Reviewing $relativePath...";
-  copilot --allow-all -p "Quick code quality review of @$relativePath - critical issues only" 
-}
 ```
 
 ---
 
 After completing the demos, try these variations:
 
-1. **Interactive Challenge**: Start `copilot` and explore the book app. Ask about `@samples/book-app-project/books.py` and request improvements 3 times in a row.
+1. **Interactive Challenge**: Start `copilot` and explore the book app. Ask about `@samples/pizza-recipe-project/pizza_recipe.py` and request improvements 3 times in a row.
 
-2. **Plan Mode Challenge**: Run `/plan Add rating and review features to the book app`. Read the plan carefully. Does it make sense?
+2. **Plan Mode Challenge**: Run `/plan Add rating and review features to the pizza recipe app`. Read the plan carefully. Does it make sense?
 
-3. **Programmatic Challenge**: Run `copilot --allow-all -p "List all functions in @samples/tmnt-stub/pizza_recipe_app.py and describe what each does"`. Did it work on the first try?
+3. **Programmatic Challenge**: Run `copilot --allow-all -p "List all functions in @samples/pizza-recipe-project/pizza_recipe.py and describe what each does"`. Did it work on the first try?
 
 ---
 
@@ -613,29 +575,29 @@ Additional details about remote sessions can be found in the [Copilot CLI docs](
 
 ## 📝 Assignment
 
-### Main Challenge: Improve the Book App Utilities
+### Main Challenge: Improve the Pizza Recipe App Utilities
 
-The hands-on examples focused on reviewing and refactoring `book_app.py`. Now practice the same skills on a different file, `utils.py`:
+The hands-on examples focused on reviewing the pizza recipe scaffold. Now practice the same skills on its terminal helpers in `utils.py`:
 
 1. Start an interactive session: `copilot`
-2. Ask Copilot CLI to summarize the file: "Summarize @samples/book-app-project/utils.py and explain what each function in this file does"
+2. Ask Copilot CLI to summarize the file: "Summarize @samples/pizza-recipe-project/utils.py and explain what each function does"
 3. Ask it to add input validation: "Add validation to `get_user_choice()` so it handles empty input and non-numeric entries"
-4. Ask it to improve error handling: "What happens if `get_book_details()` receives an empty string for the title? Add guards for that."
-5. Ask for a docstring: "Add a comprehensive docstring to `get_book_details()` with parameter descriptions and return values"
+4. Ask it to improve error handling: "What happens if `get_recipe_details()` receives an empty recipe name or no ingredients? Add clear validation for both cases."
+5. Ask for a docstring: "Add a beginner-friendly docstring to `get_recipe_details()` that explains its prompts and return value"
 6. Observe how context carries between prompts. Each improvement builds on the last
 7. Exit with `/exit`
 
-**Success criteria**: You should have an improved `utils.py` with input validation, error handling, and a docstring, all built through a multi-turn conversation.
+**Success criteria**: You should have improved pizza recipe utilities with input validation, clear error messages, and beginner-friendly documentation, all built through a multi-turn conversation.
 
 <details>
 <summary>💡 Hints (click to expand)</summary>
 
 **Sample prompts to try:**
 ```bash
-> @samples/book-app-project/utils.py What does each function in this file do?
+> @samples/pizza-recipe-project/utils.py What does each function in this file do?
 > Add validation to get_user_choice() so it handles empty input and non-numeric entries
-> What happens if get_book_details() receives an empty string for the title? Add guards for that.
-> Add a comprehensive docstring to get_book_details() with parameter descriptions and return values
+> What happens if get_recipe_details() receives an empty recipe name or no ingredients? Add clear validation for both cases.
+> Add a beginner-friendly docstring to get_recipe_details() that explains its prompts and return value
 ```
 
 **Common issues:**
@@ -647,11 +609,11 @@ The hands-on examples focused on reviewing and refactoring `book_app.py`. Now pr
 
 ### Bonus Challenge: Compare the Modes
 
-The examples used `/plan` for a search feature and `-p` for batch reviews. Now try all three modes on a single new task: adding a `list_by_year()` method to the `BookCollection` class:
+The examples used `/plan` to build the pizza recipe app and `-p` for single-shot tasks. Now try all three modes on one new task: adding a `find_recipes_by_ingredient()` function:
 
-1. **Interactive**: `copilot` → ask it to design and build the method step by step
-2. **Plan**: `/plan Add a list_by_year(start, end) method to BookCollection that filters books by publication year range`
-3. **Programmatic**: `copilot --allow-all -p "@samples/book-app-project/books.py Add a list_by_year(start, end) method that returns books published between start and end year inclusive"`
+1. **Interactive**: `copilot` → ask it to design and build the function step by step
+2. **Plan**: `/plan Add a find_recipes_by_ingredient(ingredient) function that searches pizza recipes by ingredient`
+3. **Programmatic**: `copilot --allow-all -p "@samples/pizza-recipe-project/pizza_recipe.py Add a find_recipes_by_ingredient(ingredient) function that returns recipes containing the ingredient"`
 
 **Reflection**: Which mode felt most natural? When would you use each?
 
