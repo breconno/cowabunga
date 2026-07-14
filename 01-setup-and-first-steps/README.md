@@ -50,8 +50,6 @@ Try these beginner-friendly prompts:
 ```
 > Explain what a LLM in simple terms
 
-> Write [stub for something about agents]
-
 > What's the difference between skills and hooks?
 
 > Give me 5 best practices for writing agent instructions ?
