@@ -150,6 +150,8 @@ This is where context becomes a superpower. Single-file analysis is useful. Cros
 info
 ```
 
+---
+
 ```mermaid
   graph TD;
       A-->B;
@@ -157,6 +159,8 @@ info
       B-->D;
       C-->D;
 ```
+
+---
 
 ### Demo: Find Bugs That Span Multiple Files
 
