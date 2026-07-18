@@ -10,7 +10,6 @@ weight: 0
 -->
 
 ![Cowabunga College pizza-themed banner](./assets/cowabunga-banner.svg)
-
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)&ensp;
 [![Official Copilot CLI documentation](https://img.shields.io/badge/GitHub-CLI_Documentation-00a3ee?style=flat-square&logo=github)](https://docs.github.com/en/copilot/how-tos/copilot-cli)&ensp;
 [![Join AI Foundry Discord](https://img.shields.io/badge/Discord-AI_Community-blue?style=flat-square&logo=discord&color=5865f2&logoColor=fff)](https://aka.ms/foundry/discord)
@@ -24,7 +23,6 @@ weight: 0
 Welcome to Cowabunga College, where GitHub Copilot CLI brings AI assistance directly to your terminal. Instead of switching to a browser or code editor, you can ask questions, inspect codebases, automate routine tasks, generate tests, and debug issues without leaving your command line.
 
 Think of it as having a friendly coding sensei available 24/7 who can read your code, explain confusing patterns, and help you move faster with confidence.
-
 
 This pizza-fueled course is designed for:
 
