@@ -64,7 +64,6 @@ To provide context to Copilot CLI use *the `@` syntax* to point Copilot CLI at s
 > only your context.
 
 **Master the basics first**.
-![Essential](https://img.shields.io/badge/priority-essential-e8a33d?style=flat-square)
 
 This lesson covers everything you need to work effectively with context. 
 
