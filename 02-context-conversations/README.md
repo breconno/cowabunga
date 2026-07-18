@@ -47,11 +47,10 @@ To provide context to Copilot CLI use *the `@` syntax* to point Copilot CLI at s
 
 ### 🥷 Essential: Basic Context
 
-<div align="center">
-<sub>Read this before you spar with Copilot.</sub>
+<div align="left">
 
 ![Essential](https://img.shields.io/badge/priority-essential-e8a33d?style=flat-square)
-![Read Time](https://img.shields.io/badge/read_time-3_min-7cff6b?style=flat-square)
+<sub>Before you spar with Copilot</sub>
 
 </div>
 
@@ -64,7 +63,10 @@ To provide context to Copilot CLI use *the `@` syntax* to point Copilot CLI at s
 > Everything else is outside the dojo walls — Copilot can't read your mind,
 > only your context.
 
-This section covers everything you need to work effectively with context. Master these basics first.
+**Master the basics first**.
+![Essential](https://img.shields.io/badge/priority-essential-e8a33d?style=flat-square)
+
+This lesson covers everything you need to work effectively with context. 
 
 ---
 
@@ -579,8 +581,7 @@ No re-explaining. No re-reading files. Just continue working.
 
 ### 🌀 Optional: Going Deeper
 
-````markdown
-<div align="center">
+<div align="left">
 <sub>For students who want to know how far the sewer really goes.</sub>
 
 ![Optional](https://img.shields.io/badge/priority-optional-4a8a72?style=flat-square)
@@ -600,7 +601,6 @@ No re-explaining. No re-reading files. Just continue working.
 - What Copilot silently drops first when a conversation runs long
 
 </details>
-````
 
 These topics build on the essentials above. **Pick what interests you, or skip ahead to [Practice](#practice).**
 
