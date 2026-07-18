@@ -211,7 +211,7 @@ Once you're comfortable, try:
 
 ### Mode 1: Interactive Mode (start here)
 
-<img src="assets/interactive-mode.png" alt="Interactive Mode - Like talking to a waiter who can answer questions and adjust the order" width="250"/>
+<img src="assets/interactive-mode.svg" alt="Interactive Mode - Like talking to a waiter who can answer questions and adjust the order" width="250"/>
 
 **Best for**: Exploration, iteration, multi-turn conversations. Like talking to a waiter who can answer questions, take feedback, and adjust the order on the fly.
 
