@@ -147,54 +147,26 @@ copilot
 This is where context becomes a superpower. Single-file analysis is useful. Cross-file analysis is transformative.
 
 ```mermaid
-%%{init: {'theme':'base', 'themeVariables': {
-  'primaryColor': '#123222',
-  'primaryTextColor': '#f4fbf5',
-  'primaryBorderColor': '#7cff6b',
-  'lineColor': '#7cff6b',
-  'secondaryColor': '#0a1f16',
-  'secondaryTextColor': '#f4fbf5',
-  'secondaryBorderColor': '#c23b3b',
-  'tertiaryColor': '#0c231c',
-  'tertiaryTextColor': '#f4fbf5',
-  'tertiaryBorderColor': '#e8a33d',
-  'background': '#03100e',
-  'mainBkg': '#123222',
-  'nodeTextColor': '#f4fbf5',
-  'edgeLabelBackground': '#03100e',
-  'fontFamily': 'Verdana'
-}}}%%
 flowchart TB
-    subgraph Single[" 🔍 Single-File Analysis "]
-        direction TB
-        S1[["pizza_recipe_app.py"]]
-        S1 --> SC1["✅ Syntax OK"]
-        S1 --> SC2["✅ Types Valid"]
-        S1 --> SC3["✅ Style Clean"]
+    subgraph Single[Single-File Analysis]
+        S1[pizza_recipe_app.py]
+        S1 --> SC1[Syntax OK]
+        S1 --> SC2[Types Valid]
+        S1 --> SC3[Style Clean]
     end
-
-    subgraph Cross[" 🥷 Cross-File Analysis "]
-        direction TB
-        F1[["pizza_recipe_app.py"]]
-        F2[["kitchen_app.py"]]
-        F3[["utils.py"]]
-        AI(("AI 🍕"))
+    subgraph Cross[Cross-File Analysis]
+        F1[pizza_recipe_app.py]
+        F2[kitchen_app.py]
+        F3[utils.py]
+        AI((AI))
         F1 --> AI
         F2 --> AI
         F3 --> AI
-        AI --> R1["🐛 Hidden Bug Found"]
-        AI --> R2["⚠️ Duplicate Code Detected"]
-        AI --> R3["🔗 Data Flow Mapped"]
+        AI --> R1[Hidden Bug Found]
+        AI --> R2[Duplicate Code Detected]
+        AI --> R3[Data Flow Mapped]
     end
-
-    Single -. "misses what's only<br/>visible together" .-> Cross
-
-    style Single fill:#0a1f16,stroke:#c23b3b,stroke-width:2px
-    style Cross fill:#123222,stroke:#7cff6b,stroke-width:2px
-    style AI fill:#e8a33d,stroke:#7c4a12,stroke-width:2px,color:#0a1f16
-    style R1 fill:#3a1414,stroke:#e05a5a,color:#f4fbf5
-    style R2 fill:#3a2c0e,stroke:#e8a33d,color:#f4fbf5
-    style R3 fill:#0f2c22,stroke:#7cff6b,color:#f4fbf5
+    SC3 --> F1
 ```
 
 ### Demo: Find Bugs That Span Multiple Files
@@ -480,47 +452,21 @@ Context usage: 62k/200k tokens (31%)
 ### Pick Up Where You Left Off
 
 ```mermaid
-%%{init: {'theme':'base', 'themeVariables': {
-  'primaryColor': '#123222',
-  'primaryTextColor': '#f4fbf5',
-  'primaryBorderColor': '#7cff6b',
-  'lineColor': '#7cff6b',
-  'secondaryColor': '#0a1f16',
-  'secondaryTextColor': '#f4fbf5',
-  'secondaryBorderColor': '#e8a33d',
-  'tertiaryColor': '#0c231c',
-  'tertiaryTextColor': '#f4fbf5',
-  'tertiaryBorderColor': '#7cff6b',
-  'background': '#03100e',
-  'mainBkg': '#123222',
-  'nodeTextColor': '#f4fbf5',
-  'edgeLabelBackground': '#03100e',
-  'fontFamily': 'Verdana'
-}}}%%
 flowchart LR
-    subgraph Mon[" Monday "]
-        direction TB
-        M1["copilot<br/>/rename dojo-app-review<br/>Working on issues...<br/>/exit"]
-        M2(["☁️ Session auto-saved"])
+    subgraph Mon[Monday]
+        M1[copilot - rename dojo-app-review]
+        M2[Session auto-saved]
         M1 --> M2
     end
-
-    Tue(["🌙 Tuesday<br/><i>the dojo sleeps</i>"])
-
-    subgraph Wed[" Wednesday "]
-        direction TB
-        W1["copilot — continue<br/>Context restored!"]
-        W2["✅ Files remembered"]
-        W3["✅ Issues tracked"]
-        W4["✅ Progress saved"]
+    Tue[Tuesday - the dojo sleeps]
+    subgraph Wed[Wednesday]
+        W1[copilot continue - context restored]
+        W2[Files remembered]
+        W3[Issues tracked]
+        W4[Progress saved]
         W1 --> W2 --> W3 --> W4
     end
-
-    Mon -. "session safely stored" .-> Tue -.-> Wed
-
-    style Mon fill:#0a1f16,stroke:#7cff6b,stroke-width:2px
-    style Wed fill:#123222,stroke:#7cff6b,stroke-width:2px
-    style Tue fill:#0c231c,stroke:#e8a33d,stroke-width:2px,color:#e8a33d
+    M2 -->|session safely stored| Tue --> W1
 ```
 
 *Sessions auto-save when you exit. Resume days later with full context: files, issues, and progress all remembered.*
@@ -712,20 +658,7 @@ You already know `/context` and `/clear` from the essentials. Here's the deeper 
 Every AI has a "context window," which is the amount of text it can consider at once.
 
 ```mermaid
-%%{init: {'theme':'base', 'themeVariables': {
-  'pieOuterStrokeColor': '#7cff6b',
-  'pieStrokeColor': '#03100e',
-  'pieStrokeWidth': '2px',
-  'pieSectionTextColor': '#f4fbf5',
-  'pieLegendTextColor': '#d7ffe0',
-  'pie1': '#7cff6b',
-  'pie2': '#e8a33d',
-  'pie3': '#c23b3b',
-  'pie4': '#123222',
-  'background': '#03100e',
-  'fontFamily': 'Verdana'
-}}}%%
-pie showData title Context Window — 128K Token Limit (45,000 / 128,000 used, 35%)
+pie showData title Context Window - 128K Token Limit
     "Referenced Files" : 22000
     "Conversation History" : 16000
     "System Prompt" : 7000
