@@ -345,3 +345,77 @@ Two loose ends:
 2. **Context window pie chart** — no nodes/edges at all in the pie syntax, so this bug class doesn't apply; that one should be safe as-is.
 
 Once you've confirmed all three render clean on GitHub, want me to also retrofit this "declare before reference" ordering into the dojo color styling on the SVG-based diagrams from earlier chapters, or is that pattern specific enough to Mermaid that it doesn't carry over? (It doesn't — the SVGs are static, hand-placed shapes, no runtime layout engine to trip over this. Just flagging in case the instinct to "go check everything" kicks in — that one's genuinely not needed.)
+
+Given the debugging saga we just went through, I want to be upfront: getting genuine row-wrapping in Mermaid (a "staircase" layout) requires `subgraph` blocks with their own `direction LR`, connected vertically between rows — and cross-subgraph edges are exactly the pattern with the longest bug history across every Mermaid version, GitHub's build included. I have zero ability to test against your exact GitHub build locally (everything I've tried so far has rendered fine for me and failed for you), so I can't promise this works on the first try the way I couldn't with the last one either.
+
+So here are two options — try the first, but don't burn another debugging cycle if it fails, just fall back to the second.
+
+**Option A — single diagram, staircase layout (higher risk, follows the "declare shape before reference" rule we confirmed):**
+
+```mermaid
+flowchart TB
+    M1[copilot - rename dojo-app-review]
+    M2[Session auto-saved]
+    T1[Tuesday - the dojo sleeps]
+    W1[copilot continue - context restored]
+    W2[Files remembered]
+    W3[Issues tracked]
+    W4[Progress saved]
+
+    subgraph Mon[Monday]
+        direction LR
+        M1 --> M2
+    end
+
+    subgraph Tue[Tuesday]
+        direction LR
+        T1
+    end
+
+    subgraph Wed[Wednesday]
+        direction LR
+        W1 --> W2 --> W3 --> W4
+    end
+
+    M2 --> T1
+    T1 --> W1
+
+    classDef monday fill:#0a1f16,color:#f4fbf5,stroke:#7cff6b,stroke-width:2px
+    classDef wednesday fill:#123222,color:#f4fbf5,stroke:#7cff6b,stroke-width:2px
+    class M1,M2 monday
+    class W1,W2,W3,W4 wednesday
+```
+
+**Option B — three small diagrams stacked, zero subgraphs, guaranteed-safe pattern (proven multiple times in this thread):**
+
+```mermaid
+flowchart LR
+    M1[copilot - rename dojo-app-review]:::monday --> M2[Session auto-saved]:::monday
+    classDef monday fill:#0a1f16,color:#f4fbf5,stroke:#7cff6b,stroke-width:2px
+```
+
+```mermaid
+flowchart LR
+    T1[Tuesday - the dojo sleeps]
+```
+
+```mermaid
+flowchart LR
+    W1[copilot continue - context restored]:::wednesday --> W2[Files remembered]:::wednesday --> W3[Issues tracked]:::wednesday --> W4[Progress saved]:::wednesday
+    classDef wednesday fill:#123222,color:#f4fbf5,stroke:#7cff6b,stroke-width:2px
+```
+
+Option B loses the connecting arrows between days, but you get three natural rows in the README just by stacking the code blocks — which is actually what "drop to a new row on Tuesday" literally looks like once rendered, no layout engine gymnastics required, nothing left to crash.
+
+Given how much time the last bug ate, I'd genuinely try B first even though it's the less elegant answer — you can always come back to A once B is solid and the pressure's off.
+
+Easy fix — just flip that block's direction from `LR` (left-right) to `TB` (top-bottom):
+
+```mermaid
+flowchart TB
+    W1[copilot continue - context restored]:::wednesday --> W2[Files remembered]:::wednesday --> W3[Issues tracked]:::wednesday --> W4[Progress saved]:::wednesday
+    classDef wednesday fill:#123222,color:#f4fbf5,stroke:#7cff6b,stroke-width:2px
+```
+
+That's the only change needed — same nodes, same edges, same styling, just `LR` → `TB` on the first line. No new syntax patterns introduced, so this shouldn't reopen any of the rendering issues from earlier since it's just a direction flag, not a structural change to how nodes/edges are declared.
+

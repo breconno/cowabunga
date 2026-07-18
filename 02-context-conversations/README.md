@@ -457,16 +457,18 @@ Context usage: 62k/200k tokens (31%)
 
 ```mermaid
 flowchart LR
-    T1[Monday]:::monday --> M1[copilot - rename dojo-app-review]
-    M1 --> M2[Session auto-saved]
-    M2 -->|session safely stored| Tue[Tuesday - the dojo sleeps]
-    Tue --> T2[Wednesday]:::wednesday
-    T2 --> W1[copilot continue - context restored]
-    W1 --> W2[Files remembered]
-    W2 --> W3[Issues tracked]
-    W3 --> W4[Progress saved]
-
+    M1[copilot - rename dojo-app-review]:::monday --> M2[Session auto-saved]:::monday
     classDef monday fill:#0a1f16,color:#f4fbf5,stroke:#7cff6b,stroke-width:2px
+```
+
+```mermaid
+flowchart LR
+    T1[Tuesday - the dojo sleeps]
+```
+
+```mermaid
+flowchart LR
+    W1[copilot continue - context restored]:::wednesday --> W2[Files remembered]:::wednesday --> W3[Issues tracked]:::wednesday --> W4[Progress saved]:::wednesday
     classDef wednesday fill:#123222,color:#f4fbf5,stroke:#7cff6b,stroke-width:2px
 ```
 
