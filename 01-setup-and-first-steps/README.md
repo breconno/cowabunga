@@ -69,7 +69,69 @@ Now let's see why developers are calling this "having a senior engineer on speed
 
 > 💡 **About Example Outputs**: The sample outputs shown throughout this course are illustrative. Because Copilot CLI's responses vary each time, your results will differ in wording, formatting, and detail. Focus on the *type* of information returned, not the exact text.
 
-### Demo 1: Code Review in Seconds
+
+### Demo 1: Generate Working Code
+
+Need a function you'd otherwise spend 15 minutes googling? Still in your session:
+
+```
+> Write a Python function that takes a list of pizza recipes from the dojo kitchen and returns: total recipe count, total served, itemized number served, and most recent served
+Sleep 2s
+```
+
+---
+
+<details>
+<summary>🎬 See it in action!</summary>
+
+![Generate Code Demo](assets/generate-code-demo.gif)
+
+*Demo output varies. Your model, tools, and responses will differ from what's shown here.*
+
+</details>
+
+---
+
+**What happens**: A complete, working function in seconds that you can copy-paste-run.
+
+When you're done exploring, exit the session:
+
+```
+> /exit
+```
+
+**The takeaway**: Instant gratification, and you stayed in one continuous session the whole time.
+
+---
+
+### Demo 2: Explain Confusing Code
+
+Ever stared at code wondering what it does? Try this in your Copilot CLI session:
+
+```
+> Explain what @samples/pizza-recipe-project/pizza_recipe.py does in simple terms
+```
+
+---
+
+<details>
+<summary>🎬 See it in action!</summary>
+
+![Explain Code Demo](assets/explain-code-demo.gif)
+
+*Demo output varies. Your model, tools, and responses will differ from what's shown here.*
+
+</details>
+
+---
+
+**What happens**: (your output will differ) Copilot CLI reads the file, understands the code, and explains it in plain English.
+
+**The takeaway**: Complex code explained like a patient mentor would explain it.
+
+---
+
+### Demo 3: Code Review in Seconds
 
 The course includes sample files with intentional code quality issues. If you're working on your local machine and haven't already cloned the repo, please run the `git clone` command below, navigate to the `cowabunga` folder, and then run the `copilot` command.
 
@@ -104,67 +166,6 @@ Once inside the interactive Copilot CLI session, run the following:
 ---
 
 **The takeaway**: A professional code review in seconds. Manual review would take...well...more time than that!
-
----
-
-### Demo 2: Explain Confusing Code
-
-Ever stared at code wondering what it does? Try this in your Copilot CLI session:
-
-```
-> Explain what @samples/pizza-recipe-project/pizza_recipe.py does in simple terms
-```
-
----
-
-<details>
-<summary>🎬 See it in action!</summary>
-
-![Explain Code Demo](assets/explain-code-demo.gif)
-
-*Demo output varies. Your model, tools, and responses will differ from what's shown here.*
-
-</details>
-
----
-
-**What happens**: (your output will differ) Copilot CLI reads the file, understands the code, and explains it in plain English.
-
-**The takeaway**: Complex code explained like a patient mentor would explain it.
-
----
-
-### Demo 3: Generate Working Code
-
-Need a function you'd otherwise spend 15 minutes googling? Still in your session:
-
-```
-> Write a Python function that takes a list of pizza recipes from the dojo kitchen and returns: total recipe count, total served, itemized number served, and most recent served
-Sleep 2s
-```
-
----
-
-<details>
-<summary>🎬 See it in action!</summary>
-
-![Generate Code Demo](assets/generate-code-demo.gif)
-
-*Demo output varies. Your model, tools, and responses will differ from what's shown here.*
-
-</details>
-
----
-
-**What happens**: A complete, working function in seconds that you can copy-paste-run.
-
-When you're done exploring, exit the session:
-
-```
-> /exit
-```
-
-**The takeaway**: Instant gratification, and you stayed in one continuous session the whole time.
 
 ---
 
@@ -249,7 +250,7 @@ Notice how each prompt builds on the previous answer. You're having a conversati
 
 ### Mode 2: Plan Mode
 
-<img src="assets/plan-mode.png" alt="Plan Mode - Like planning a route before a trip using GPS" width="250"/>
+<img src="assets/plan-mode.svg" alt="Plan Mode - Like planning a route before a trip using GPS" width="250"/>
 
 **Best for**: Complex tasks where you want to review the approach before execution. Similar to planning a route before a trip using GPS.
 
@@ -487,7 +488,7 @@ copilot
 
 # Practice
 
-<img src="../assets/practice.png" alt="Warm desk setup with monitor showing code, lamp, coffee cup, and headphones ready for hands-on practice" width="800"/>
+<img src="assets/practice.svg" alt="Warm desk setup with monitor showing code, lamp, coffee cup, and headphones ready for hands-on practice" width="800"/>
 
 Time to put what you've learned into action.
 
