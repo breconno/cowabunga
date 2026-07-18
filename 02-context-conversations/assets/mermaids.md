@@ -330,3 +330,18 @@ Two things while you test this:
 
 1. **Did the session-persistence timeline (v2, the linear chain one) also fail on GitHub, or only Cross-File Intelligence?** That diagram doesn't have this bare-reference-before-definition pattern, so if it rendered fine, that's more evidence this specific ordering issue is the real cause.
 2. If this reordered version *still* fails, I'd say we stop iterating on one combined diagram and split Cross-File Intelligence into two separate, simpler diagrams (Single-File and Cross-File as their own blocks, side by side in a table or back-to-back) — every failure so far has involved connecting two distinct clusters together in one diagram, and removing that connection entirely sidesteps whatever GitHub's build is choking on, confirmed or not.
+
+Cowabunga indeed! So the actual bug was **forward-referencing a node ID before its shape/class was declared** — GitHub's 11.16.0 build chokes on that, even though mermaid.live, VS Code's preview, and my local 11.14.0 test all handled it fine. Good to have a confirmed root cause instead of another guess.
+
+That gives us a real rule for every future diagram in this repo, not just this one:
+
+> **On GitHub, always declare a node's full shape (`Node[Label]` or `Node((Label))` etc.) the first time it appears — before any edge references it — even if that means listing "header" or "hub" nodes up top before the edges that use them.**
+
+That's a genuinely useful thing to have nailed down, since you're clearly going to keep building Mermaid diagrams for this repo.
+
+Two loose ends:
+
+1. **Session persistence timeline** — I never confirmed whether that one hit the same GitHub error. It happens to already declare nodes in first-reference order (no forward references), so it's probably fine, but "probably" isn't "confirmed" — worth pasting it into GitHub before you consider it done, now that we know what to look for if it does fail.
+2. **Context window pie chart** — no nodes/edges at all in the pie syntax, so this bug class doesn't apply; that one should be safe as-is.
+
+Once you've confirmed all three render clean on GitHub, want me to also retrofit this "declare before reference" ordering into the dojo color styling on the SVG-based diagrams from earlier chapters, or is that pattern specific enough to Mermaid that it doesn't carry over? (It doesn't — the SVGs are static, hand-placed shapes, no runtime layout engine to trip over this. Just flagging in case the instinct to "go check everything" kicks in — that one's genuinely not needed.)

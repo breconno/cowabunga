@@ -457,20 +457,17 @@ Context usage: 62k/200k tokens (31%)
 
 ```mermaid
 flowchart LR
-    subgraph Mon[Monday]
-        M1[copilot - rename dojo-app-review]
-        M2[Session auto-saved]
-        M1 --> M2
-    end
-    Tue[Tuesday - the dojo sleeps]
-    subgraph Wed[Wednesday]
-        W1[copilot continue - context restored]
-        W2[Files remembered]
-        W3[Issues tracked]
-        W4[Progress saved]
-        W1 --> W2 --> W3 --> W4
-    end
-    M2 -->|session safely stored| Tue --> W1
+    T1[Monday]:::monday --> M1[copilot - rename dojo-app-review]
+    M1 --> M2[Session auto-saved]
+    M2 -->|session safely stored| Tue[Tuesday - the dojo sleeps]
+    Tue --> T2[Wednesday]:::wednesday
+    T2 --> W1[copilot continue - context restored]
+    W1 --> W2[Files remembered]
+    W2 --> W3[Issues tracked]
+    W3 --> W4[Progress saved]
+
+    classDef monday fill:#0a1f16,color:#f4fbf5,stroke:#7cff6b,stroke-width:2px
+    classDef wednesday fill:#123222,color:#f4fbf5,stroke:#7cff6b,stroke-width:2px
 ```
 
 *Sessions auto-save when you exit. Resume days later with full context: files, issues, and progress all remembered.*
