@@ -47,7 +47,6 @@ To provide context to Copilot CLI use *the `@` syntax* to point Copilot CLI at s
 
 ### 🥷 Essential: Basic Context
 
-````markdown
 <div align="center">
 <sub>Read this before you spar with Copilot.</sub>
 
@@ -64,7 +63,6 @@ To provide context to Copilot CLI use *the `@` syntax* to point Copilot CLI at s
 > anything you explicitly mention are what Copilot can actually see.
 > Everything else is outside the dojo walls — Copilot can't read your mind,
 > only your context.
-````
 
 This section covers everything you need to work effectively with context. Master these basics first.
 
