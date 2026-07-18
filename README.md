@@ -9,10 +9,9 @@ weight: 0
 ---
 -->
 
-![Cowabunga College pizza-themed banner](./assets/copilot-banner.svg)
+![Cowabunga College pizza-themed banner](./assets/cowabunga-banner.svg)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)&ensp;
-[![Open project in GitHub Codespaces](https://img.shields.io/badge/Codespaces-Open-blue?style=flat-square&logo=github)](https://codespaces.new/breconno/cowabunga?hide_repo_select=true&ref=main&quickstart=true)&ensp;
 [![Official Copilot CLI documentation](https://img.shields.io/badge/GitHub-CLI_Documentation-00a3ee?style=flat-square&logo=github)](https://docs.github.com/en/copilot/how-tos/copilot-cli)&ensp;
 [![Join AI Foundry Discord](https://img.shields.io/badge/Discord-AI_Community-blue?style=flat-square&logo=discord&color=5865f2&logoColor=fff)](https://aka.ms/foundry/discord)
 
