@@ -283,3 +283,50 @@ pie showData title Context Window - 128K Token Limit
 ```
 
 Trade-off worth knowing: dropping `subgraph` means you lose the actual bounding box/background rectangle around each grouped cluster — the `:::title` styled node approximates the grouping visually (a colored header node feeding into its group) but it's not a literal drawn boundary the way `subgraph` gives you. If that visual distinction matters a lot for these two diagrams, the more reliable alternative is going back to two *separate* diagrams side-by-side (e.g., in a markdown table or two adjacent code blocks) instead of one combined diagram — that sidesteps the cross-subgraph-edge bug entirely while still letting each individual diagram use `subgraph` internally, since the crash pattern specifically involves edges that cross *between* subgraphs, not subgraphs used in isolation.
+
+Good, that rules out the `<details>` theory. Let me look again at exactly what's different between the flat version and a plain diagram — and I think I found a real candidate this time: **node ordering**.
+
+In my "fixed" version, `T2` gets referenced as a bare node ID here:
+```
+SC3 -.-> T2
+```
+...*before* it's ever given a shape or class here:
+```
+T2[Cross-File Analysis]:::title --> F1[...]
+```
+
+That's a real, documented Mermaid bug pattern (`Cannot read properties of undefined (reading 'shape')` — mermaid-js/mermaid#6014): if a node is first touched as a bare reference in an edge, then later given its shape/label/class, some renderer builds fail because the node's internal "shape" property never got properly set on that first pass. GitHub's specific 11.16.0 build may hit this where others don't.
+
+Fix: declare both title nodes fully, with their shape and class, **before** any edge references them at all:
+
+```mermaid
+flowchart TB
+    T1[Single-File Analysis]:::title
+    T2[Cross-File Analysis]:::title
+
+    T1 --> S1[pizza_recipe_app.py]
+    S1 --> SC1[Syntax OK]
+    S1 --> SC2[Types Valid]
+    S1 --> SC3[Style Clean]
+
+    SC3 -.-> T2
+
+    T2 --> F1[pizza_recipe_app.py]
+    T2 --> F2[kitchen_app.py]
+    T2 --> F3[utils.py]
+    F1 --> AI((AI))
+    F2 --> AI
+    F3 --> AI
+    AI --> R1[Hidden Bug Found]
+    AI --> R2[Duplicate Code Detected]
+    AI --> R3[Data Flow Mapped]
+
+    classDef title fill:#123222,color:#f4fbf5,stroke:#7cff6b,stroke-width:2px
+```
+
+I have to be upfront: I can't reproduce GitHub's exact 11.16.0 crash locally — everything I've tested so far (subgraphs, no subgraphs, the previous ordering) has rendered fine in my environment, so I'm now debugging this partly blind against a build I don't have direct access to. This node-ordering fix is a real, evidence-backed pattern rather than another guess, but I can't guarantee it's *the* fix the way I could if I'd reproduced the crash myself.
+
+Two things while you test this:
+
+1. **Did the session-persistence timeline (v2, the linear chain one) also fail on GitHub, or only Cross-File Intelligence?** That diagram doesn't have this bare-reference-before-definition pattern, so if it rendered fine, that's more evidence this specific ordering issue is the real cause.
+2. If this reordered version *still* fails, I'd say we stop iterating on one combined diagram and split Cross-File Intelligence into two separate, simpler diagrams (Single-File and Cross-File as their own blocks, side by side in a table or back-to-back) — every failure so far has involved connecting two distinct clusters together in one diagram, and removing that connection entirely sidesteps whatever GitHub's build is choking on, confirmed or not.

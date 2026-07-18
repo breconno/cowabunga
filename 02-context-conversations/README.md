@@ -148,14 +148,17 @@ This is where context becomes a superpower. Single-file analysis is useful. Cros
 
 ```mermaid
 flowchart TB
-    T1[Single-File Analysis]:::title --> S1[pizza_recipe_app.py]
+    T1[Single-File Analysis]:::title
+    T2[Cross-File Analysis]:::title
+
+    T1 --> S1[pizza_recipe_app.py]
     S1 --> SC1[Syntax OK]
     S1 --> SC2[Types Valid]
     S1 --> SC3[Style Clean]
 
     SC3 -.-> T2
 
-    T2[Cross-File Analysis]:::title --> F1[pizza_recipe_app.py]
+    T2 --> F1[pizza_recipe_app.py]
     T2 --> F2[kitchen_app.py]
     T2 --> F3[utils.py]
     F1 --> AI((AI))
