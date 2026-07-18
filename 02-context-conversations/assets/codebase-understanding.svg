@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1536" height="1024" viewBox="0 0 1536 1024" role="img" aria-labelledby="title desc">
+  <title id="title">Reading Code Manually vs AI-Assisted Analysis</title>
+  <desc id="desc">A frazzled ninja buried in scrolls after an hour versus a calm ninja with an AI-generated summary after ten seconds.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#081411" /><stop offset="45%" stop-color="#0c231c" /><stop offset="100%" stop-color="#03100e" />
+    </linearGradient>
+    <linearGradient id="cheese" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#ffe08a" /><stop offset="100%" stop-color="#e8a33d" /></linearGradient>
+    <pattern id="grate" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M0 0 L40 0 M0 0 L0 40" stroke="#7cff6b" stroke-opacity="0.05" stroke-width="1.4" />
+    </pattern>
+    <filter id="neonGlow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="4" result="b" /><feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge>
+    </filter>
+    <g id="scrollNote">
+      <rect x="-20" y="-14" width="40" height="28" rx="2" fill="#e8e0c8" stroke="#7c4a12" stroke-width="1.5" />
+      <path d="M-12,-5 L12,-5 M-12,1 L12,1 M-12,7 L4,7" stroke="#7c4a12" stroke-width="1.5" />
+    </g>
+    <g id="turtleStressed">
+      <path d="M-55,100 C-55,10 55,10 55,100 L55,136 C55,152 40,164 22,164 L-22,164 C-40,164 -55,152 -55,136 Z" fill="#1a4a30" stroke="#c23b3b" stroke-width="4" />
+      <rect x="-55" y="28" width="110" height="30" fill="#0a1f16" stroke="#c23b3b" stroke-width="3" />
+      <path d="M-40,10 Q-55,-15 -35,-30 Q-30,-10 -25,5 Z" fill="#1a4a30" stroke="#c23b3b" stroke-width="3" />
+      <path d="M40,10 Q55,-15 35,-30 Q30,-10 25,5 Z" fill="#1a4a30" stroke="#c23b3b" stroke-width="3" />
+    </g>
+    <g id="turtleCalm">
+      <path d="M-55,100 C-55,10 55,10 55,100 L55,136 C55,152 40,164 22,164 L-22,164 C-40,164 -55,152 -55,136 Z" fill="#1a4a30" stroke="#7cff6b" stroke-width="4" />
+      <rect x="-55" y="28" width="110" height="30" fill="#0a1f16" stroke="#7cff6b" stroke-width="3" />
+    </g>
+  </defs>
+
+  <rect width="1536" height="1024" fill="url(#bg)" />
+  <rect width="1536" height="1024" fill="url(#grate)" />
+
+  <line x1="768" y1="80" x2="768" y2="960" stroke="#7cff6b" stroke-opacity="0.2" stroke-width="2" />
+
+  <!-- LEFT -->
+  <text x="384" y="100" text-anchor="middle" font-family="Verdana, Geneva, sans-serif" font-size="34" font-weight="700" fill="#f4fbf5">Reading Scrolls Manually</text>
+  <line x1="180" y1="118" x2="588" y2="118" stroke="#7cff6b" stroke-opacity="0.3" stroke-width="2" />
+
+  <!-- stopwatch: 1 hour -->
+  <g transform="translate(280 220)">
+    <rect x="-6" y="-70" width="12" height="18" rx="4" fill="#e05a5a" />
+    <circle r="60" fill="#0a1f16" stroke="#e05a5a" stroke-width="5" />
+    <circle r="52" fill="#03100e" stroke="#e05a5a" stroke-opacity="0.4" stroke-width="2" />
+    <path d="M0,0 L0,-45 A45,45 0 0 1 40,20 Z" fill="#e05a5a" opacity="0.7" />
+    <text y="10" text-anchor="middle" font-family="Verdana, Geneva, sans-serif" font-size="26" font-weight="700" fill="#e05a5a">1</text>
+    <text y="32" text-anchor="middle" font-family="Verdana, Geneva, sans-serif" font-size="14" fill="#e05a5a">hour</text>
+  </g>
+
+  <g fill="#e05a5a" font-family="Verdana, Geneva, sans-serif" font-size="40" font-weight="700">
+    <text x="430" y="200">?</text>
+    <text x="470" y="260">?</text>
+    <text x="500" y="210">?</text>
+  </g>
+
+  <!-- scattered scrolls -->
+  <g>
+    <g transform="translate(150 420) rotate(-12)"><use href="#scrollNote" /></g>
+    <g transform="translate(220 460) rotate(8)"><use href="#scrollNote" /></g>
+    <g transform="translate(300 400) rotate(-5)"><use href="#scrollNote" /></g>
+    <g transform="translate(500 420) rotate(14)"><use href="#scrollNote" /></g>
+    <g transform="translate(580 460) rotate(-10)"><use href="#scrollNote" /></g>
+    <g transform="translate(180 620) rotate(6)"><use href="#scrollNote" /></g>
+    <g transform="translate(560 620) rotate(-14)"><use href="#scrollNote" /></g>
+    <g transform="translate(400 660) rotate(3)"><use href="#scrollNote" /></g>
+    <g transform="translate(260 700) rotate(-8)"><use href="#scrollNote" /></g>
+    <g transform="translate(480 700) rotate(10)"><use href="#scrollNote" /></g>
+  </g>
+
+  <g transform="translate(384 640)"><use href="#turtleStressed" /></g>
+
+  <!-- RIGHT -->
+  <text x="1152" y="100" text-anchor="middle" font-family="Verdana, Geneva, sans-serif" font-size="34" font-weight="700" fill="#f4fbf5">AI-Assisted Analysis</text>
+  <line x1="948" y1="118" x2="1356" y2="118" stroke="#7cff6b" stroke-opacity="0.3" stroke-width="2" />
+
+  <!-- stopwatch: 10 seconds -->
+  <g transform="translate(1300 220)">
+    <rect x="-6" y="-70" width="12" height="18" rx="4" fill="#7cff6b" />
+    <circle r="60" fill="#0a1f16" stroke="#7cff6b" stroke-width="5" filter="url(#neonGlow)" />
+    <circle r="52" fill="#03100e" stroke="#7cff6b" stroke-opacity="0.4" stroke-width="2" />
+    <path d="M0,0 L0,-45 A45,45 0 0 1 15,44 Z" fill="#7cff6b" opacity="0.7" />
+    <text y="6" text-anchor="middle" font-family="Verdana, Geneva, sans-serif" font-size="24" font-weight="700" fill="#7cff6b">10</text>
+    <text y="28" text-anchor="middle" font-family="Verdana, Geneva, sans-serif" font-size="14" fill="#7cff6b">seconds</text>
+  </g>
+
+  <g transform="translate(950 640)"><use href="#turtleCalm" /></g>
+
+  <!-- monitor with results -->
+  <g transform="translate(1080 420)">
+    <rect x="0" y="0" width="330" height="230" rx="12" fill="#03100e" stroke="#7cff6b" stroke-width="3" />
+    <circle cx="18" cy="18" r="5" fill="#c23b3b" /><circle cx="34" cy="18" r="5" fill="#e8a33d" /><circle cx="50" cy="18" r="5" fill="#7cff6b" />
+    <g font-family="Verdana, Geneva, sans-serif" font-size="18" fill="#d7ffe0">
+      <text x="20" y="55">• App Summary</text>
+      <text x="20" y="90">• Duplicate Logic Found</text>
+      <text x="20" y="125">• Missing Validation</text>
+      <text x="20" y="160">• Inconsistent Error Handling</text>
+      <text x="20" y="195">• No Tests Detected</text>
+    </g>
+  </g>
+
+  <g transform="translate(1080 340)" filter="url(#neonGlow)">
+    <path d="M0,0 l4,10 l10,2 l-8,7 l2,10 l-8,-6 l-8,6 l2,-10 l-8,-7 l10,-2 Z" fill="#f4fbf5" />
+  </g>
+
+  <!-- center VS with shuriken -->
+  <g transform="translate(768 500)">
+    <circle r="70" fill="#0a1f16" stroke="#7cff6b" stroke-opacity="0.4" stroke-width="2" />
+    <text text-anchor="middle" y="14" font-family="Verdana, Geneva, sans-serif" font-size="40" font-weight="900" fill="#e8a33d">VS</text>
+  </g>
+</svg>

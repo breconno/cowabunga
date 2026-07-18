@@ -9,7 +9,7 @@ weight: 3
 ---
 -->
 
-![Chapter 02: Context and Conversations](assets/chapter-header.png)
+![Chapter 02: Context and Conversations](assets/chapter-header.svg)
 
 > **What if AI could see your entire codebase, not just one file at a time?**
 
@@ -31,23 +31,40 @@ By the end of this chapter, you'll be able to:
 
 ## 🧩 Real-World Analogy: Working with a Colleague
 
-<img src="assets/colleague-context-analogy.png" alt="Context Makes the Difference - Without vs With Context" width="800"/>
+<img src="assets/colleague-context-analogy.svg" alt="Context Makes the Difference - Without vs With Context" width="800"/>
 
 *Just like your colleagues, Copilot CLI isn't a mind reader. Providing more information helps humans and Copilot alike provide targeted support!*
 
 Imagine explaining a bug to a colleague:
 
-> **Without context**: "The book app doesn't work."
+> **Without context**: "Dude. The pizza app's broke [sad face emoji]"
 
-> **With context**: "Look at `books.py`, especially the `find_book_by_title` function. It's not doing case-insensitive matching."
+> **With context**: "Look at `@samples/pizza-recipe-project/pizza_recipe.py`, especially the `sumerize_recipes` function. It's not doing case-insensitive matching."
 
 To provide context to Copilot CLI use *the `@` syntax* to point Copilot CLI at specific files.
 
 ---
 
-# Essential: Basic Context
+### 🥷 Essential: Basic Context
 
-<img src="assets/essential-basic-context.png" alt="Glowing code blocks connected by light trails representing how context flows through Copilot CLI conversations" width="800"/>
+````markdown
+<div align="center">
+<sub>Read this before you spar with Copilot.</sub>
+
+![Essential](https://img.shields.io/badge/priority-essential-e8a33d?style=flat-square)
+![Read Time](https://img.shields.io/badge/read_time-3_min-7cff6b?style=flat-square)
+
+</div>
+
+> [!IMPORTANT]
+> This part is required. Skip it and your prompts land like a shuriken
+> thrown with your eyes closed.
+>
+> **Only what's in the light counts.** `@file` references, open tabs, and
+> anything you explicitly mention are what Copilot can actually see.
+> Everything else is outside the dojo walls — Copilot can't read your mind,
+> only your context.
+````
 
 This section covers everything you need to work effectively with context. Master these basics first.
 
@@ -74,25 +91,25 @@ copilot
 
 > 💡 **Don't have a project handy?** Create a quick test file:
 > ```bash
-> echo "def greet(name): return 'Hello ' + name" > test.py
+> echo "def greet(name): return 'Cowabunga ' + name" > cowabunga.py
 > copilot
-> > What does @test.py do?
+> > What does @cowabunga.py do?
 > ```
 
 ### Basic @ Patterns
 
 | Pattern | What It Does | Example Use |
 |---------|--------------|-------------|
-| `@file.py` | Reference a single file | `Review @samples/book-app-project/books.py` |
-| `@folder/` | Reference all files in a directory | `Review @samples/book-app-project/` |
-| `@file1.py @file2.py` | Reference multiple files | `Compare @samples/book-app-project/book_app.py @samples/book-app-project/books.py` |
+| `@file.py` | Reference a single file | `Review @samples/pizza-recipe-project/pizza_recipe.py` |
+| `@folder/` | Reference all files in a directory | `Review @samples/pizza-recipe-project/` |
+| `@file1.py @file2.py` | Reference multiple files | `Compare @samples/pizza-recipe-project/pizza_recipe.py @samples/pizza-recipe-project/pizza_recipe.py` |
 
 ### Reference a Single File
 
 ```bash
 copilot
 
-> Explain what @samples/book-app-project/utils.py does
+> Explain what @samples/pizza-recipe-project/utils.py does
 ```
 
 ---
@@ -113,7 +130,7 @@ copilot
 ```bash
 copilot
 
-> Compare @samples/book-app-project/book_app.py and @samples/book-app-project/books.py for consistency
+> Compare @samples/pizza-recipe-project/pizza_recipe.py and @samples/pizza-recipe-project/pizza_recipe.py for consistency
 ```
 
 ### Reference an Entire Directory
@@ -121,7 +138,7 @@ copilot
 ```bash
 copilot
 
-> Review all files in @samples/book-app-project/ for error handling
+> Review all files in @samples/pizza-recipe-project/ for error handling
 ```
 
 ---
@@ -130,14 +147,63 @@ copilot
 
 This is where context becomes a superpower. Single-file analysis is useful. Cross-file analysis is transformative.
 
-<img src="assets/cross-file-intelligence.png" alt="Cross-File Intelligence - comparing single-file vs cross-file analysis showing how analyzing files together reveals bugs, data flow, and patterns invisible in isolation" width="800"/>
+```mermaid
+%%{init: {'theme':'base', 'themeVariables': {
+  'primaryColor': '#123222',
+  'primaryTextColor': '#f4fbf5',
+  'primaryBorderColor': '#7cff6b',
+  'lineColor': '#7cff6b',
+  'secondaryColor': '#0a1f16',
+  'secondaryTextColor': '#f4fbf5',
+  'secondaryBorderColor': '#c23b3b',
+  'tertiaryColor': '#0c231c',
+  'tertiaryTextColor': '#f4fbf5',
+  'tertiaryBorderColor': '#e8a33d',
+  'background': '#03100e',
+  'mainBkg': '#123222',
+  'nodeTextColor': '#f4fbf5',
+  'edgeLabelBackground': '#03100e',
+  'fontFamily': 'Verdana'
+}}}%%
+flowchart TB
+    subgraph Single[" 🔍 Single-File Analysis "]
+        direction TB
+        S1[["pizza_recipe_app.py"]]
+        S1 --> SC1["✅ Syntax OK"]
+        S1 --> SC2["✅ Types Valid"]
+        S1 --> SC3["✅ Style Clean"]
+    end
+
+    subgraph Cross[" 🥷 Cross-File Analysis "]
+        direction TB
+        F1[["pizza_recipe_app.py"]]
+        F2[["kitchen_app.py"]]
+        F3[["utils.py"]]
+        AI(("AI 🍕"))
+        F1 --> AI
+        F2 --> AI
+        F3 --> AI
+        AI --> R1["🐛 Hidden Bug Found"]
+        AI --> R2["⚠️ Duplicate Code Detected"]
+        AI --> R3["🔗 Data Flow Mapped"]
+    end
+
+    Single -. "misses what's only<br/>visible together" .-> Cross
+
+    style Single fill:#0a1f16,stroke:#c23b3b,stroke-width:2px
+    style Cross fill:#123222,stroke:#7cff6b,stroke-width:2px
+    style AI fill:#e8a33d,stroke:#7c4a12,stroke-width:2px,color:#0a1f16
+    style R1 fill:#3a1414,stroke:#e05a5a,color:#f4fbf5
+    style R2 fill:#3a2c0e,stroke:#e8a33d,color:#f4fbf5
+    style R3 fill:#0f2c22,stroke:#7cff6b,color:#f4fbf5
+```
 
 ### Demo: Find Bugs That Span Multiple Files
 
 ```bash
 copilot
 
-> @samples/book-app-project/book_app.py @samples/book-app-project/books.py
+> @samples/pizza-recipe-project/pizza_recipe.py @samples/pizza-recipe-project/pizza_recipe.py
 >
 > How do these files work together? What's the data flow?
 ```
@@ -196,7 +262,7 @@ Cross-Module Analysis
 
 ### Demo: Understand a Codebase in 60 Seconds
 
-<img src="assets/codebase-understanding.png" alt="Split-screen comparison showing manual code review taking 1 hour versus AI-assisted analysis taking 10 seconds" width="800" />
+<img src="assets/codebase-understanding.svg" alt="Split-screen comparison showing manual code review taking 1 hour versus AI-assisted analysis taking 10 seconds" width="800" />
 
 New to a project? Learn about it quickly using Copilot CLI.
 
@@ -414,7 +480,49 @@ Context usage: 62k/200k tokens (31%)
 
 ### Pick Up Where You Left Off
 
-<img src="assets/session-persistence-timeline.png" alt="Timeline showing how GitHub Copilot CLI sessions persist across days - start on Monday, resume on Wednesday with full context restored" width="800"/>
+```mermaid
+%%{init: {'theme':'base', 'themeVariables': {
+  'primaryColor': '#123222',
+  'primaryTextColor': '#f4fbf5',
+  'primaryBorderColor': '#7cff6b',
+  'lineColor': '#7cff6b',
+  'secondaryColor': '#0a1f16',
+  'secondaryTextColor': '#f4fbf5',
+  'secondaryBorderColor': '#e8a33d',
+  'tertiaryColor': '#0c231c',
+  'tertiaryTextColor': '#f4fbf5',
+  'tertiaryBorderColor': '#7cff6b',
+  'background': '#03100e',
+  'mainBkg': '#123222',
+  'nodeTextColor': '#f4fbf5',
+  'edgeLabelBackground': '#03100e',
+  'fontFamily': 'Verdana'
+}}}%%
+flowchart LR
+    subgraph Mon[" Monday "]
+        direction TB
+        M1["copilot<br/>/rename dojo-app-review<br/>Working on issues...<br/>/exit"]
+        M2(["☁️ Session auto-saved"])
+        M1 --> M2
+    end
+
+    Tue(["🌙 Tuesday<br/><i>the dojo sleeps</i>"])
+
+    subgraph Wed[" Wednesday "]
+        direction TB
+        W1["copilot — continue<br/>Context restored!"]
+        W2["✅ Files remembered"]
+        W3["✅ Issues tracked"]
+        W4["✅ Progress saved"]
+        W1 --> W2 --> W3 --> W4
+    end
+
+    Mon -. "session safely stored" .-> Tue -.-> Wed
+
+    style Mon fill:#0a1f16,stroke:#7cff6b,stroke-width:2px
+    style Wed fill:#123222,stroke:#7cff6b,stroke-width:2px
+    style Tue fill:#0c231c,stroke:#e8a33d,stroke-width:2px,color:#e8a33d
+```
 
 *Sessions auto-save when you exit. Resume days later with full context: files, issues, and progress all remembered.*
 
@@ -471,9 +579,30 @@ No re-explaining. No re-reading files. Just continue working.
 
 ---
 
-# Optional: Going Deeper
+### 🌀 Optional: Going Deeper
 
-<img src="assets/optional-going-deeper.png" alt="Abstract crystal cave in blue and purple tones representing deeper exploration of context concepts" width="800"/>
+````markdown
+<div align="center">
+<sub>For students who want to know how far the sewer really goes.</sub>
+
+![Optional](https://img.shields.io/badge/priority-optional-4a8a72?style=flat-square)
+![Level](https://img.shields.io/badge/level-🥷🥷🥷⬜⬜-123222?style=flat-square)
+
+</div>
+
+<details>
+<summary><b>🔽 Click to expand — the advanced path</b></summary>
+
+> [!NOTE]
+> Not required to clear this chapter. Think of it as the extra practice
+> session after class lets out.
+
+- How the context window actually gets trimmed when it fills up
+- Why `@file` beats pasting code inline for large files
+- What Copilot silently drops first when a conversation runs long
+
+</details>
+````
 
 These topics build on the essentials above. **Pick what interests you, or skip ahead to [Practice](#practice).**
 
@@ -585,7 +714,26 @@ You already know `/context` and `/clear` from the essentials. Here's the deeper 
 
 Every AI has a "context window," which is the amount of text it can consider at once.
 
-<img src="assets/context-window-visualization.png" alt="Context Window Visualization" width="800"/>
+```mermaid
+%%{init: {'theme':'base', 'themeVariables': {
+  'pieOuterStrokeColor': '#7cff6b',
+  'pieStrokeColor': '#03100e',
+  'pieStrokeWidth': '2px',
+  'pieSectionTextColor': '#f4fbf5',
+  'pieLegendTextColor': '#d7ffe0',
+  'pie1': '#7cff6b',
+  'pie2': '#e8a33d',
+  'pie3': '#c23b3b',
+  'pie4': '#123222',
+  'background': '#03100e',
+  'fontFamily': 'Verdana'
+}}}%%
+pie showData title Context Window — 128K Token Limit (45,000 / 128,000 used, 35%)
+    "Referenced Files" : 22000
+    "Conversation History" : 16000
+    "System Prompt" : 7000
+    "Unused Capacity" : 83000
+```
 
 *The context window is like a desk: it can only hold so much at once. Files, conversation history, and system prompts all take space.*
 
@@ -761,7 +909,7 @@ copilot
 
 # Practice
 
-<img src="../assets/practice.png" alt="Warm desk setup with monitor showing code, lamp, coffee cup, and headphones ready for hands-on practice" width="800"/>
+<img src="assets/practice.svg" alt="Warm desk setup with monitor showing code, lamp, coffee cup, and headphones ready for hands-on practice" width="800"/>
 
 Time to apply your context and session management skills.
 
@@ -792,7 +940,7 @@ copilot
 copilot
 
 > /rename book-app-review
-> @samples/book-app-project/books.py Let's add input validation for empty titles
+> @samples/book-app-project/books.py Add input validation for empty titles
 
 [Copilot CLI suggests validation approach]
 
@@ -814,7 +962,7 @@ After completing the demos, try these variations:
    ```bash
    copilot
    > @samples/book-app-project/book_app.py @samples/book-app-project/books.py
-   > What's the relationship between these files? Are there any code smells?
+   > What is the relationship between these files? Are there any code smells?
    ```
 
 2. **Session Challenge**: Start a session, name it with `/rename my-first-session`, work on something, exit with `/exit`, then run `copilot --continue`. Does it remember what you were doing?

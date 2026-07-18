@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="150" viewBox="0 0 1200 150" role="img" aria-labelledby="title desc">
+  <title id="title">Chapter 02: Context and Conversations</title>
+  <desc id="desc">Pixel-styled dojo banner introducing chapter two.</desc>
+  <defs>
+    <pattern id="grate" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M0 0 L30 0 M0 0 L0 30" stroke="#7cff6b" stroke-opacity="0.08" stroke-width="1.2" />
+    </pattern>
+    <filter id="neonGlow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="2.5" result="blur" />
+      <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="150" fill="#03100e" />
+  <rect width="1200" height="150" fill="url(#grate)" />
+  <rect x="0" y="0" width="1200" height="4" fill="#7cff6b" opacity="0.6" />
+  <rect x="0" y="146" width="1200" height="4" fill="#7cff6b" opacity="0.6" />
+
+  <text x="30" y="26" font-family="Courier New, monospace" font-size="14" fill="#7cff6b" opacity="0.8">Welcome to the Dojo</text>
+
+  <g font-family="Courier New, monospace" font-weight="700" font-size="34" fill="#7cff6b" filter="url(#neonGlow)">
+    <text x="28" y="66">COWABUNGA</text>
+  </g>
+
+  <g transform="translate(300 40)">
+    <rect x="0" y="0" width="60" height="50" fill="#1a4a30" stroke="#7cff6b" stroke-width="2" />
+    <rect x="6" y="6" width="48" height="16" fill="#0a1f16" />
+    <rect x="12" y="10" width="12" height="8" fill="#7cff6b" />
+    <rect x="36" y="10" width="12" height="8" fill="#7cff6b" />
+    <rect x="6" y="32" width="10" height="10" fill="#0a1f16" />
+    <rect x="44" y="32" width="10" height="10" fill="#0a1f16" />
+    <rect x="20" y="50" width="20" height="8" fill="#c23b3b" />
+  </g>
+
+  <g stroke="#7cff6b" stroke-opacity="0.55" stroke-width="2" fill="none">
+    <path d="M420 40 L455 40 L455 25 L490 25" />
+    <path d="M420 80 L445 80 L445 100 L480 100" />
+  </g>
+  <g fill="#e8a33d">
+    <circle cx="455" cy="40" r="4" /><circle cx="490" cy="25" r="4" />
+    <circle cx="445" cy="80" r="4" /><circle cx="480" cy="100" r="4" />
+  </g>
+
+  <text x="1170" y="88" text-anchor="end" font-family="Verdana, Geneva, sans-serif" font-size="30" font-weight="700" fill="#f4fbf5">Chapter 02: Context and Conversations</text>
+</svg>
