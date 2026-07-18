@@ -205,3 +205,81 @@ pie showData title Context Window - 128K Token Limit
 I also removed subgraph-to-subgraph edges (`Mon --> Tue`) and rewired them to connect actual leaf nodes instead (`M2 --> Tue`) — connecting subgraphs directly by name is another spot where older parsers diverge from newer ones.
 
 If these render clean, the theming/styling was the cause, and we can add color back incrementally using `classDef` + `class` (a more universally-supported coloring mechanism than inline `style` on subgraphs) — one diagram at a time, so if something breaks again you'll know exactly which addition caused it.
+
+That's the confirmation we needed. Same exact content, VS Code renders it, GitHub's UI doesn't — that's a genuine GitHub-specific bug in their pinned Mermaid build, not a syntax mistake on our end. VS Code's Markdown preview extension bundles its own separate (likely newer/different) Mermaid build, so it's non-authoritative for what GitHub can handle. This lines up with what I found earlier in Mermaid's issue tracker: `subgraph` blocks connected by edges that cross from one subgraph into another have a long, specifically GitHub-flagged history of breaking their integration even when the exact same content renders fine elsewhere (mermaid.live, VS Code, mermaid-cli).
+
+I already rebuilt this exact diagram without subgraphs and confirmed it renders locally — the fix is to drop `subgraph` entirely and fake the visual grouping with a styled "header" node instead, which doesn't touch the buggy code path at all:
+
+```mermaid
+flowchart TB
+    T1[Single-File Analysis]:::title --> S1[pizza_recipe_app.py]
+    S1 --> SC1[Syntax OK]
+    S1 --> SC2[Types Valid]
+    S1 --> SC3[Style Clean]
+
+    SC3 -.-> T2
+
+    T2[Cross-File Analysis]:::title --> F1[pizza_recipe_app.py]
+    T2 --> F2[kitchen_app.py]
+    T2 --> F3[utils.py]
+    F1 --> AI((AI))
+    F2 --> AI
+    F3 --> AI
+    AI --> R1[Hidden Bug Found]
+    AI --> R2[Duplicate Code Detected]
+    AI --> R3[Data Flow Mapped]
+
+    classDef title fill:#123222,color:#f4fbf5,stroke:#7cff6b,stroke-width:2px
+```
+
+Since diagram 1 (session persistence) uses the exact same `subgraph` pattern, it's very likely to hit the identical GitHub bug even though you haven't tested it yet. Let me preemptively fix that one too before you find out the hard way.That confirmed it's just a naturally wide/short shape (single left-to-right chain, no branching) — not a rendering error, the 94px height is correct for this layout. Syntax is clean. Here's the fix for both diagrams:
+
+**1. Session persistence timeline** (subgraph-free)
+```mermaid
+flowchart LR
+    T1[Monday]:::monday --> M1[copilot - rename dojo-app-review]
+    M1 --> M2[Session auto-saved]
+    M2 -->|session safely stored| Tue[Tuesday - the dojo sleeps]
+    Tue --> T2[Wednesday]:::wednesday
+    T2 --> W1[copilot continue - context restored]
+    W1 --> W2[Files remembered]
+    W2 --> W3[Issues tracked]
+    W3 --> W4[Progress saved]
+
+    classDef monday fill:#0a1f16,color:#f4fbf5,stroke:#7cff6b,stroke-width:2px
+    classDef wednesday fill:#123222,color:#f4fbf5,stroke:#7cff6b,stroke-width:2px
+```
+
+**2. Cross-file intelligence** (subgraph-free, from above)
+```mermaid
+flowchart TB
+    T1[Single-File Analysis]:::title --> S1[pizza_recipe_app.py]
+    S1 --> SC1[Syntax OK]
+    S1 --> SC2[Types Valid]
+    S1 --> SC3[Style Clean]
+
+    SC3 -.-> T2
+
+    T2[Cross-File Analysis]:::title --> F1[pizza_recipe_app.py]
+    T2 --> F2[kitchen_app.py]
+    T2 --> F3[utils.py]
+    F1 --> AI((AI))
+    F2 --> AI
+    F3 --> AI
+    AI --> R1[Hidden Bug Found]
+    AI --> R2[Duplicate Code Detected]
+    AI --> R3[Data Flow Mapped]
+
+    classDef title fill:#123222,color:#f4fbf5,stroke:#7cff6b,stroke-width:2px
+```
+
+**3. Context window pie chart** — unaffected, no subgraphs, still the version from earlier:
+```mermaid
+pie showData title Context Window - 128K Token Limit
+    "Referenced Files" : 22000
+    "Conversation History" : 16000
+    "System Prompt" : 7000
+    "Unused Capacity" : 83000
+```
+
+Trade-off worth knowing: dropping `subgraph` means you lose the actual bounding box/background rectangle around each grouped cluster — the `:::title` styled node approximates the grouping visually (a colored header node feeding into its group) but it's not a literal drawn boundary the way `subgraph` gives you. If that visual distinction matters a lot for these two diagrams, the more reliable alternative is going back to two *separate* diagrams side-by-side (e.g., in a markdown table or two adjacent code blocks) instead of one combined diagram — that sidesteps the cross-subgraph-edge bug entirely while still letting each individual diagram use `subgraph` internally, since the crash pattern specifically involves edges that cross *between* subgraphs, not subgraphs used in isolation.

@@ -147,17 +147,25 @@ copilot
 This is where context becomes a superpower. Single-file analysis is useful. Cross-file analysis is transformative.
 
 ```mermaid
-info
-```
+flowchart TB
+    T1[Single-File Analysis]:::title --> S1[pizza_recipe_app.py]
+    S1 --> SC1[Syntax OK]
+    S1 --> SC2[Types Valid]
+    S1 --> SC3[Style Clean]
 
----
+    SC3 -.-> T2
 
-```mermaid
-  graph TD;
-      A-->B;
-      A-->C;
-      B-->D;
-      C-->D;
+    T2[Cross-File Analysis]:::title --> F1[pizza_recipe_app.py]
+    T2 --> F2[kitchen_app.py]
+    T2 --> F3[utils.py]
+    F1 --> AI((AI))
+    F2 --> AI
+    F3 --> AI
+    AI --> R1[Hidden Bug Found]
+    AI --> R2[Duplicate Code Detected]
+    AI --> R3[Data Flow Mapped]
+
+    classDef title fill:#123222,color:#f4fbf5,stroke:#7cff6b,stroke-width:2px
 ```
 
 ---
