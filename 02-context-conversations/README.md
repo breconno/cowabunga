@@ -37,7 +37,7 @@ By the end of this chapter, you'll be able to:
 
 Imagine explaining a bug to a colleague:
 
-> **Without context**: "Dude. The pizza app's broke [sad face emoji]"
+> **Without context**: "Dude, the pizza app's broke. Totally sad face emoji"
 
 > **With context**: "Look at `@samples/pizza-recipe-project/pizza_recipe.py`, especially `list_recipes()`. Is its `NotImplementedError` an accidental bug or an intentional lesson scaffold?"
 
