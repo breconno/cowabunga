@@ -39,7 +39,7 @@ Imagine explaining a bug to a colleague:
 
 > **Without context**: "Dude. The pizza app's broke [sad face emoji]"
 
-> **With context**: "Look at `@samples/pizza-recipe-project/pizza_recipe.py`, especially the `sumerize_recipes` function. It's not doing case-insensitive matching."
+> **With context**: "Look at `@samples/pizza-recipe-project/pizza_recipe.py`, especially `list_recipes()`. Is its `NotImplementedError` an accidental bug or an intentional lesson scaffold?"
 
 To provide context to Copilot CLI use *the `@` syntax* to point Copilot CLI at specific files.
 
@@ -101,14 +101,14 @@ copilot
 |---------|--------------|-------------|
 | `@file.py` | Reference a single file | `Review @samples/pizza-recipe-project/pizza_recipe.py` |
 | `@folder/` | Reference all files in a directory | `Review @samples/pizza-recipe-project/` |
-| `@file1.py @file2.py` | Reference multiple files | `Compare @samples/pizza-recipe-project/pizza_recipe.py @samples/pizza-recipe-project/pizza_recipe.py` |
+| `@file1.py @file2.py` | Reference multiple files | `Compare @samples/pizza-recipe-project/pizza_recipe.py with @samples/python-app-template.py` |
 
 ### Reference a Single File
 
 ```bash
 copilot
 
-> Explain what @samples/pizza-recipe-project/utils.py does
+> Explain what @samples/pizza-recipe-project/utils.py does? Summarize briefly.
 ```
 
 ---
@@ -126,11 +126,21 @@ copilot
 
 ### Reference Multiple Files
 
+Compare the pizza recipe starter with a generic Python app template to see how
+two file references give Copilot CLI a clear basis for review. From the
+repository root, start Copilot CLI and enter this prompt:
+
 ```bash
 copilot
 
-> Compare @samples/pizza-recipe-project/pizza_recipe.py and @samples/pizza-recipe-project/pizza_recipe.py for consistency
+> Compare @samples/pizza-recipe-project/pizza_recipe.py with @samples/python-app-template.py. List the differences in structure, type hints, docstrings, and function behavior. Explain each difference in beginner-friendly language, but do not change either file.
 ```
+
+The first file is the TMNT starter you will build on in later lessons.
+`python-app-template.py` is a generic, completed reference—not another pizza
+solution—so Copilot CLI can identify useful differences without comparing the
+starter to itself. Two files, one focused prompt: now you're giving it
+ninja-level context.
 
 ### Reference an Entire Directory
 
@@ -151,21 +161,21 @@ flowchart TB
     T1[Single-File Analysis]:::title
     T2[Cross-File Analysis]:::title
 
-    T1 --> S1[pizza_recipe_app.py]
+    T1 --> S1[pizza_recipe.py]
     S1 --> SC1[Syntax OK]
     S1 --> SC2[Types Valid]
     S1 --> SC3[Style Clean]
 
     SC3 -.-> T2
 
-    T2 --> F1[pizza_recipe_app.py]
-    T2 --> F2[kitchen_app.py]
+    T2 --> F1[pizza_app.py]
+    T2 --> F2[pizza_recipe.py]
     T2 --> F3[utils.py]
     F1 --> AI((AI))
     F2 --> AI
     F3 --> AI
-    AI --> R1[Hidden Bug Found]
-    AI --> R2[Duplicate Code Detected]
+    AI --> R1[Shared Types Found]
+    AI --> R2[Starter Error Handled]
     AI --> R3[Data Flow Mapped]
 
     classDef title fill:#123222,color:#f4fbf5,stroke:#7cff6b,stroke-width:2px
@@ -173,14 +183,14 @@ flowchart TB
 
 ---
 
-### Demo: Find Bugs That Span Multiple Files
+### Demo: Trace a Feature Across Multiple Files
 
 ```bash
 copilot
 
-> @samples/pizza-recipe-project/pizza_recipe.py @samples/pizza-recipe-project/pizza_recipe.py
+> @samples/pizza-recipe-project/pizza_app.py @samples/pizza-recipe-project/pizza_recipe.py @samples/pizza-recipe-project/utils.py
 >
-> How do these files work together? What's the data flow?
+> How do these files work together? Trace the current call from pizza_app.py into pizza_recipe.py, explain why no recipe data reaches utils.py yet, and describe the future display flow after list_recipes() is implemented. Do not implement the TODOs.
 ```
 
 > 💡 **Advanced Option**: For security-focused cross-file analysis, try the Python security examples:
@@ -208,30 +218,33 @@ copilot
 Cross-Module Analysis
 =====================
 
-1. DATA FLOW PATTERN
-   book_app.py creates BookCollection instance and calls methods
-   books.py defines BookCollection class and manages data persistence
+1. APP ORCHESTRATION
+   pizza_app.py calls list_recipes() from pizza_recipe.py
+   Today, it catches the intentional NotImplementedError
+   After list_recipes() is completed, it will pass recipes to utils.py
 
-   Flow: book_app.py (UI) → books.py (business logic) → data.json (storage)
+2. SHARED RECIPE TYPE
+   pizza_recipe.py defines the PizzaRecipe data class
+   utils.py imports PizzaRecipe for its print_recipes() type hint
 
-2. DUPLICATE DISPLAY FUNCTIONS
-   book_app.py:9-21    show_books() function
-   utils.py:28-36      print_books() function
+3. FUTURE DATA FLOW
+   pizza_app.py → pizza_recipe.list_recipes() → recipe values
+   recipe values → utils.print_recipes() → terminal output
 
-   Impact: Two nearly identical functions doing the same thing. If you update
-   one (like changing the format), you must remember to update the other.
+4. INTENTIONAL STARTER GAP
+   list_recipes() raises NotImplementedError because learners complete it later
+   pizza_app.py catches that specific error and prints a clear status message
+   instead of crashing or filling in the lesson's TODOs
 
-3. INCONSISTENT ERROR HANDLING
-   book_app.py handles ValueError from year conversion
-   books.py silently returns None/False on errors
-
-   Pattern: No unified approach to error handling across modules
+   Current output:
+   Pizza recipes are not ready yet: Complete list_recipes() in a future lesson.
 ```
 
 **Why this matters**: A single-file review would miss the bigger picture. Only cross-file analysis reveals:
-- **Duplicate code** that should be consolidated
-- **Data flow patterns** showing how components interact
-- **Architectural issues** that affect maintainability
+- **Entry-point behavior** that coordinates the recipe and display modules
+- **Shared types** that connect modules
+- **Data flow patterns** showing how values move between functions
+- **Error handling** that keeps an intentional starter gap visible and safe
 
 ---
 
@@ -244,22 +257,20 @@ New to a project? Learn about it quickly using Copilot CLI.
 ```bash
 copilot
 
-> @samples/book-app-project/
+> @samples/pizza-recipe-project/
 >
-> In one paragraph, what does this app do and what are its biggest quality issues?
+> In one paragraph, what does this app do? Describe its module boundaries and distinguish intentional starter gaps from bugs.
 ```
 
 **What you get**:
 ```
-This is a CLI book collection manager that lets users add, list, remove, and
-search books stored in a JSON file. The biggest quality issues are:
-
-1. Duplicate display logic - show_books() and print_books() do the same thing
-2. Inconsistent error handling - some errors raise exceptions, others return False
-3. No input validation - year can be 0, empty strings accepted for title/author
-4. Missing tests - no test coverage for critical functions like find_book_by_title
-
-Priority fix: Consolidate duplicate display functions and add input validation.
+This is a starter TMNT pizza recipe app split into three modules. pizza_app.py
+is the entry point, pizza_recipe.py defines the PizzaRecipe type and future
+recipe operations, and utils.py contains terminal input and display helpers.
+The empty recipe collection and NotImplementedError exceptions are intentional
+Chapter 00 learning gaps, not bugs. For now, the entry point safely reports
+that recipes are not ready; after learners complete list_recipes(), its results
+will flow to utils.print_recipes() for display.
 ```
 
 **Result**: What takes an hour of code reading compressed into 10 seconds. You know exactly where to focus.
@@ -273,15 +284,15 @@ Priority fix: Consolidate duplicate display functions and add input validation.
 ```bash
 copilot
 
-> @samples/book-app-project/books.py Review this file for potential bugs
+> @samples/pizza-recipe-project/pizza_recipe.py Review this starter for incomplete behavior. Separate intentional lesson TODOs from accidental bugs, and do not implement anything.
 
 # Copilot CLI now has the full file content and can give specific feedback:
-# "Line 49: Case-sensitive comparison may miss books..."
-# "Line 29: JSON decode errors are caught but data corruption isn't logged..."
+# "list_recipes() and find_recipe() intentionally raise NotImplementedError."
+# "RECIPES is intentionally empty until a future lesson."
 
-> What about @samples/book-app-project/book_app.py?
+> What about @samples/pizza-recipe-project/pizza_app.py? Does it handle the starter state clearly?
 
-# Now reviewing book_app.py, but still aware of books.py context
+# Now reviewing pizza_app.py, but still aware of pizza_recipe.py context
 ```
 
 ### Example 2: Understanding a Codebase
@@ -289,15 +300,15 @@ copilot
 ```bash
 copilot
 
-> @samples/book-app-project/books.py What does this module do?
+> @samples/pizza-recipe-project/pizza_recipe.py What does this module do?
 
-# Copilot CLI reads books.py and understands the BookCollection class
+# Copilot CLI reads pizza_recipe.py and recognizes the intentional starter functions
 
-> @samples/book-app-project/ Give me an overview of the code structure
+> @samples/pizza-recipe-project/ Give me an overview of the code structure
 
 # Copilot CLI scans the directory and summarizes
 
-> How does the app save and load books?
+> What happens when pizza_app.py requests recipes now, and how will it send them to the terminal display after list_recipes() is implemented?
 
 # Copilot CLI can trace through the code it's already seen
 ```
@@ -316,10 +327,10 @@ copilot
 ```bash
 copilot
 
-> @samples/book-app-project/book_app.py @samples/book-app-project/utils.py
-> I see duplicate display functions: show_books() and print_books(). Help me consolidate these.
+> @samples/pizza-recipe-project/pizza_app.py @samples/pizza-recipe-project/pizza_recipe.py @samples/pizza-recipe-project/utils.py
+> Suggest a beginner-friendly refactor that keeps pizza_app.py as the entry point and utils.py responsible for display. Do not implement the TODOs or remove NotImplementedError from pizza_recipe.py.
 
-# Copilot CLI sees both files and can suggest how to merge the duplicate code
+# Copilot CLI sees all three files while preserving the future lesson work
 ```
 
 ---
@@ -335,7 +346,7 @@ Every conversation is automatically saved. Just exit normally:
 ```bash
 copilot
 
-> @samples/book-app-project/ Let's improve error handling across all modules
+> @samples/pizza-recipe-project/ Review how the modules handle the intentional starter state
 
 [... do some work ...]
 
@@ -362,7 +373,7 @@ copilot -r
 copilot --resume=abc123
 
 # Or resume by the name you gave the session
-copilot --resume="my book app review"
+copilot --resume=pizza-recipe-review
 ```
 
 > 💡 **How do I find a session ID?** You don't need to memorize them. Running `copilot --resume` without an ID shows an interactive list of your previous sessions, their names, IDs, and when they were last active. Just pick the one you want.
@@ -381,19 +392,19 @@ Give sessions meaningful names so you can find them later. You can name a sessio
 
 ```bash
 # Name a session right when you start it
-copilot --name book-app-review
+copilot --name=pizza-recipe-review
 
 # Or rename the current session from inside
 copilot
 
-> /rename book-app-review
+> /rename pizza-recipe-review
 # Session renamed for easier identification
 ```
 
 Once a session is named, you can resume it directly by name without browsing through a list:
 
 ```bash
-copilot --resume=book-app-review
+copilot --resume=pizza-recipe-review
 ```
 
 To clean up sessions you no longer need, use `/session delete` from inside a session:
@@ -425,7 +436,7 @@ copilot
 
 For example, if you tell Copilot CLI "I always prefer pytest for Python testing", it can remember that preference and apply it automatically in future sessions. All without you having to repeat it.
 
-> 💡 **Memory vs. Sessions**: Sessions save conversation history so you can resume a specific task. Memory saves reusable repository facts and user preferences that Copilot can apply in future work. Think of sessions as task notebooks, and memory as reusable context Copilot can carry forward.
+> 💡 **Memory vs. Sessions**: Sessions save conversation history so you can resume a specific task. Memory saves reusable repository facts and user preferences that Copilot can apply in future work. Think of sessions as task histories, and memory as reusable context Copilot can carry forward.
 
 ### Check and Manage Context
 
@@ -447,7 +458,7 @@ Context usage: 62k/200k tokens (31%)
 # Opens a timeline picker allowing you to roll back to an earlier point in your conversation
 ```
 
-> 💡 **When to use `/clear` or `/new`**: If you've been reviewing books.py and want to switch to discussing utils.py, run /new first (or /clear if you don't need the session history). Otherwise stale context from the old topic may confuse responses.
+> 💡 **When to use `/clear` or `/new`**: If you've been reviewing pizza_recipe.py and want to switch to an unrelated topic, run /new first (or /clear if you don't need the session history). Otherwise stale context from the recipe app may confuse responses.
 
 > 💡 **Made a mistake or want to try a different approach?** Use `/rewind` (or press Esc twice) to open a **timeline picker** that lets you roll back to any earlier point in your conversation, not just the most recent one. This is useful when you went down the wrong path and want to backtrack without starting over entirely.
 
@@ -457,7 +468,7 @@ Context usage: 62k/200k tokens (31%)
 
 ```mermaid
 flowchart LR
-    M1[copilot - rename dojo-app-review]:::monday --> M2[Session auto-saved]:::monday
+    M1[copilot --name=pizza-recipe-review]:::monday --> M2[Session auto-saved]:::monday
     classDef monday fill:#0a1f16,color:#f4fbf5,stroke:#7cff6b,stroke-width:2px
 ```
 
@@ -468,7 +479,7 @@ flowchart LR
 
 ```mermaid
 flowchart LR
-    W1[copilot continue - context restored]:::wednesday --> W2[Files remembered]:::wednesday --> W3[Issues tracked]:::wednesday --> W4[Progress saved]:::wednesday
+    W1[copilot --continue: context restored]:::wednesday --> W2[Files remembered]:::wednesday --> W3[Issues tracked]:::wednesday --> W4[Progress saved]:::wednesday
     classDef wednesday fill:#123222,color:#f4fbf5,stroke:#7cff6b,stroke-width:2px
 ```
 
@@ -477,20 +488,20 @@ flowchart LR
 Imagine this workflow across multiple days:
 
 ```bash
-# Monday: Start book app review with a name right from the beginning
-copilot --name book-app-review
+# Monday: Start the pizza recipe review with a name right from the beginning
+copilot --name=pizza-recipe-review
 
-> @samples/book-app-project/books.py
+> @samples/pizza-recipe-project/pizza_app.py @samples/pizza-recipe-project/pizza_recipe.py @samples/pizza-recipe-project/utils.py
 > Review and number all code quality issues
 
 Quality Issues Found:
-1. Duplicate display functions (book_app.py & utils.py) - MEDIUM
-2. No input validation for empty strings - MEDIUM
-3. Year can be 0 or negative - LOW
-4. No type hints on all functions - LOW
-5. Missing error logging - LOW
+1. Empty recipe names are accepted by get_recipe_details() - MEDIUM
+2. Empty ingredient lists are not rejected by get_recipe_details() - MEDIUM
+3. Menu choices are collected but not validated - LOW
+4. The menu advertises future add, find, and remove flows not yet connected by pizza_app.py - INFO
+5. list_recipes() and find_recipe() intentionally remain incomplete for future lessons - INFO
 
-> Fix issue #1 (duplicate functions)
+> Suggest a validation approach for issue #1 without implementing the TODOs
 # Work on the fix...
 
 > /exit
@@ -498,17 +509,17 @@ Quality Issues Found:
 
 ```bash
 # Wednesday: Resume exactly where you left off, by name
-copilot --resume=book-app-review
+copilot --resume=pizza-recipe-review
 
-> What issues remain unfixed from our book app review?
+> What issues remain from our pizza recipe review?
 
-Remaining issues from our book-app-review session:
-2. No input validation for empty strings - MEDIUM
-3. Year can be 0 or negative - LOW
-4. No type hints on all functions - LOW
-5. Missing error logging - LOW
+Remaining issues from our pizza-recipe-review session:
+2. Empty ingredient lists are not rejected by get_recipe_details() - MEDIUM
+3. Menu choices are collected but not validated - LOW
+4. The menu's future add, find, and remove flows are not yet connected by pizza_app.py - INFO
+5. list_recipes() and find_recipe() intentionally remain incomplete for future lessons - INFO
 
-Issue #1 (duplicate functions) was fixed on Monday.
+We agreed on a validation approach for issue #1 on Monday.
 
 > Let's tackle issue #2 next
 ```
@@ -577,7 +588,7 @@ For power users, Copilot CLI supports wildcard patterns and image references:
 ```bash
 copilot
 
-> Find all TODO comments in @samples/book-app-project/**/*.py
+> Find all TODO comments in @samples/pizza-recipe-project/**/*.py and explain which future lesson work they reserve
 ```
 
 ### View Session Info
@@ -623,26 +634,26 @@ The magic happens when you have multi-turn conversations that build on each othe
 ```bash
 copilot
 
-> @samples/book-app-project/books.py Review the BookCollection class
+> @samples/pizza-recipe-project/utils.py Review get_recipe_details()
 
-Copilot CLI: "The class looks functional, but I notice:
-1. Missing type hints on some methods
-2. No validation for empty title/author
-3. Could benefit from better error handling"
+Copilot CLI: "The helper looks functional, but I notice:
+1. Its return type is clear
+2. An empty recipe name is accepted
+3. An empty ingredient list is accepted"
 
-> Add type hints to all methods
+> Add beginner-friendly validation for both empty values
 
-Copilot CLI: "Here's the class with complete type hints..."
-[Shows typed version]
+Copilot CLI: "Here's get_recipe_details() with clear validation..."
+[Shows the validated helper]
 
-> Now improve error handling
+> Now make the validation messages more helpful
 
-Copilot CLI: "Building on the typed version, here's improved error handling..."
-[Adds validation and proper exceptions]
+Copilot CLI: "Building on the validated version, here are clearer messages..."
+[Improves the messages while preserving the return type]
 
 > Generate tests for this final version
 
-Copilot CLI: "Based on the class with types and error handling..."
+Copilot CLI: "Based on the helper with validation and clear messages..."
 [Generates comprehensive tests]
 ```
 
@@ -728,7 +739,7 @@ copilot
 
 #### Best Practices for Large Codebases
 
-1. **Be specific**: `@samples/book-app-project/books.py` instead of `@samples/book-app-project/`
+1. **Be specific**: `@samples/pizza-recipe-project/pizza_recipe.py` instead of `@samples/pizza-recipe-project/`
 2. **Clear context between topics**: Use `/new` or `/clear` when switching focus
 3. **Use `/compact`**: Summarize conversation to free up context
 4. **Use multiple sessions**: One session per feature or topic
@@ -753,7 +764,7 @@ Not all files are equal when it comes to context. Here's how to choose wisely:
 | Very Large (1000+ lines) | 15,000+ tokens | Consider splitting or targeting sections |
 
 **Concrete examples:**
-- The book app's 4 Python files combined ≈ 2,000-3,000 tokens
+- The pizza recipe app's 3 Python files combined ≈ 1,000-2,000 tokens
 - A typical Python module (200 lines) ≈ 3,000 tokens
 - A Flask API file (400 lines) ≈ 6,000 tokens
 - Your package.json ≈ 200-500 tokens
@@ -764,7 +775,7 @@ Not all files are equal when it comes to context. Here's how to choose wisely:
 #### What to Include vs. Exclude
 
 **High value** (include these):
-- Entry points (`book_app.py`, `main.py`, `app.py`)
+- Entry points (`pizza_app.py`, `main.py`, `app.py`)
 - The specific files you're asking about
 - Files directly imported by your target file
 - Configuration files (`requirements.txt`, `pyproject.toml`)
@@ -780,18 +791,18 @@ Not all files are equal when it comes to context. Here's how to choose wisely:
 
 ```
 Less specific ────────────────────────► More specific
-@samples/book-app-project/                      @samples/book-app-project/books.py:47-52
+@samples/pizza-recipe-project/                 @samples/pizza-recipe-project/pizza_recipe.py
      │                                       │
      └─ Scans everything                     └─ Just what you need
-        (uses more context)                      (preserves context)
+        (uses more context)                      (ask about one function)
 ```
 
-**When to go broad** (`@samples/book-app-project/`):
+**When to go broad** (`@samples/pizza-recipe-project/`):
 - Initial codebase exploration
 - Finding patterns across many files
 - Architecture reviews
 
-**When to go specific** (`@samples/book-app-project/books.py`):
+**When to go specific** (`@samples/pizza-recipe-project/pizza_recipe.py`):
 - Debugging a particular issue
 - Code review of a specific file
 - Asking about a single function
@@ -805,13 +816,13 @@ copilot
 > @package.json What frameworks does this project use?
 
 # Step 2: Narrow based on answer
-> @samples/book-app-project/ Show me the project structure
+> @samples/pizza-recipe-project/ Show me the project structure
 
 # Step 3: Focus on what matters
-> @samples/book-app-project/books.py Review the BookCollection class
+> @samples/pizza-recipe-project/pizza_recipe.py Review the PizzaRecipe class and its starter functions
 
 # Step 4: Add related files only as needed
-> @samples/book-app-project/book_app.py @samples/book-app-project/books.py How does the CLI use the BookCollection?
+> @samples/pizza-recipe-project/pizza_app.py @samples/pizza-recipe-project/pizza_recipe.py How does the entry point request recipes?
 ```
 
 This staged approach keeps context focused and efficient.
@@ -829,9 +840,9 @@ You can include images in your conversations using the `@` syntax, or simply **p
 ```bash
 copilot
 
-> @assets/screenshot.png What is happening in this image?
+> @02-context-conversations/assets/colleague-context-analogy.png Describe how this diagram explains file context.
 
-> @assets/mockup.png Write the HTML and CSS to match this design. Place it in a new file called index.html and put the CSS in styles.css.
+> @02-context-conversations/assets/codebase-understanding.png Check whether the diagram's labels and visual flow support its message.
 ```
 
 > 📖 **Learn more**: See [Additional Context Features](../appendices/additional-context.md#working-with-images) for supported formats, practical use cases, and tips for combining images with code.
@@ -857,12 +868,12 @@ The course includes sample files you can review directly. Start copilot and run 
 ```bash
 copilot
 
-> @samples/book-app-project/ Give me a code quality review of this project
+> @samples/pizza-recipe-project/ Give me a code quality review of this starter project. Treat the TODOs and NotImplementedError exceptions as intentional.
 
 # Copilot CLI will identify issues like:
-# - Duplicate display functions
-# - Missing input validation
-# - Inconsistent error handling
+# - Missing input validation in terminal helpers
+# - Module boundaries and shared PizzaRecipe types
+# - Intentional starter gaps that should not be implemented yet
 ```
 
 > 💡 **Want to try with your own files?** Create a small Python project (`mkdir -p my-project/src`), add some .py files, then use `@my-project/src/` to review them. You can ask copilot to create sample code for you if you'd like!
@@ -872,13 +883,13 @@ copilot
 ```bash
 copilot
 
-> /rename book-app-review
-> @samples/book-app-project/books.py Add input validation for empty titles
+> /rename pizza-recipe-review
+> @samples/pizza-recipe-project/utils.py Suggest validation for an empty recipe name
 
 [Copilot CLI suggests validation approach]
 
 > Implement that fix
-> Now consolidate the duplicate display functions in @samples/book-app-project/
+> Now review display responsibilities across @samples/pizza-recipe-project/ without implementing pizza_recipe.py TODOs
 > /exit
 
 # Later - resume where you left off
@@ -891,11 +902,11 @@ copilot --continue
 
 After completing the demos, try these variations:
 
-1. **Cross-File Challenge**: Analyze how book_app.py and books.py work together:
+1. **Cross-File Challenge**: Analyze how pizza_app.py, pizza_recipe.py, and utils.py work together:
    ```bash
    copilot
-   > @samples/book-app-project/book_app.py @samples/book-app-project/books.py
-   > What is the relationship between these files? Are there any code smells?
+   > @samples/pizza-recipe-project/pizza_app.py @samples/pizza-recipe-project/pizza_recipe.py @samples/pizza-recipe-project/utils.py
+   > Trace the current startup path. Which incomplete behavior is intentional, and how does the entry point handle it?
    ```
 
 2. **Session Challenge**: Start a session, name it with `/rename my-first-session`, work on something, exit with `/exit`, then run `copilot --continue`. Does it remember what you were doing?
@@ -913,13 +924,13 @@ After completing the demos, try these variations:
 The hands-on examples focused on code quality reviews and input validation. Now practice the same context skills on a different task, tracing how data moves through the app:
 
 1. Start an interactive session: `copilot`
-2. Reference `books.py` and `book_app.py` together:
-   `@samples/book-app-project/books.py @samples/book-app-project/book_app.py Trace how a book goes from user input to being saved in data.json. What functions are involved at each step?`
-3. Bring in the data file for additional context:
-   `@samples/book-app-project/data.json What happens if this JSON file is missing or corrupted? Which functions would fail?`
+2. Reference `pizza_app.py` and `pizza_recipe.py` together:
+   `@samples/pizza-recipe-project/pizza_app.py @samples/pizza-recipe-project/pizza_recipe.py Trace the current startup flow from main() to the intentional NotImplementedError. What functions are involved at each step?`
+3. Bring in the terminal helpers for additional context:
+   `@samples/pizza-recipe-project/utils.py After list_recipes() is completed in a future lesson, how will recipe values reach terminal output? Do not implement the TODOs.`
 4. Ask for a cross-file improvement:
-   `@samples/book-app-project/books.py @samples/book-app-project/utils.py Suggest a consistent error-handling strategy that works across both files.`
-5. Rename the session: `/rename data-flow-analysis`
+   `@samples/pizza-recipe-project/pizza_app.py @samples/pizza-recipe-project/pizza_recipe.py @samples/pizza-recipe-project/utils.py Suggest a consistent validation and error-handling strategy that preserves pizza_app.py as the entry point and keeps the starter TODOs incomplete.`
+5. Rename the session: `/rename pizza-flow-analysis`
 6. Exit with `/exit`, then resume with `copilot --continue` and ask a follow-up question about the data flow
 
 **Success criteria**: You can trace data across multiple files, resume a named session, and get cross-file suggestions.
@@ -931,9 +942,9 @@ The hands-on examples focused on code quality reviews and input validation. Now 
 ```bash
 cd /path/to/cowabunga
 copilot
-> @samples/book-app-project/books.py @samples/book-app-project/book_app.py Trace how a book goes from user input to being saved in data.json.
-> @samples/book-app-project/data.json What happens if this file is missing or corrupted?
-> /rename data-flow-analysis
+> @samples/pizza-recipe-project/pizza_app.py @samples/pizza-recipe-project/pizza_recipe.py Trace the current startup flow from main() to the intentional NotImplementedError.
+> @samples/pizza-recipe-project/utils.py After list_recipes() is completed in a future lesson, how will recipes reach print_recipes()? Do not implement the TODOs.
+> /rename pizza-flow-analysis
 > /exit
 ```
 
@@ -949,11 +960,11 @@ Then resume with: `copilot --continue`
 
 ### Bonus Challenge: Context Limits
 
-1. Reference all the book app files at once with `@samples/book-app-project/`
-2. Ask several detailed questions about different files (`books.py`, `utils.py`, `book_app.py`, `data.json`)
+1. Reference all the pizza recipe app files at once with `@samples/pizza-recipe-project/`
+2. Ask several detailed questions about different files (`pizza_app.py`, `pizza_recipe.py`, and `utils.py`)
 3. Run `/context` to see usage. How quickly does it fill up?
 4. Practice using `/compact` to reclaim space, then continue the conversation
-5. Try being more specific with file references (e.g., `@samples/book-app-project/books.py` instead of the whole folder) and see how it affects context usage
+5. Try being more specific with file references (e.g., `@samples/pizza-recipe-project/pizza_recipe.py` instead of the whole folder) and see how it affects context usage
 
 ---
 
@@ -964,7 +975,7 @@ Then resume with: `copilot --continue`
 
 | Mistake | What Happens | Fix |
 |---------|--------------|-----|
-| Forgetting `@` before filenames | Copilot CLI treats "books.py" as plain text | Use `@samples/book-app-project/books.py` to reference files |
+| Forgetting `@` before filenames | Copilot CLI treats "pizza_recipe.py" as plain text | Use `@samples/pizza-recipe-project/pizza_recipe.py` to reference files |
 | Expecting sessions to persist automatically | Starting `copilot` fresh loses all previous context | Use `--continue` (last session) or `--resume` (pick a session) |
 | Referencing files outside current directory | "Permission denied" or "File not found" errors | Use `/add-dir /path/to/directory` to grant access |
 | Not using `/clear` when switching topics | Old context confuses responses about the new topic | Run `/clear` before starting a different task |
@@ -980,13 +991,13 @@ ls   # List files
 # Then start copilot and use relative paths
 copilot
 
-> Review @samples/book-app-project/books.py
+> Review @samples/pizza-recipe-project/pizza_recipe.py
 ```
 
 **"Permission denied"** - Add the directory to your allowed list:
 
 ```bash
-copilot --add-dir /path/to/directory
+copilot --add-dir=/path/to/directory
 
 # Or in a session:
 > /add-dir /path/to/directory

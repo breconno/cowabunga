@@ -1,7 +1,7 @@
 # 02-context-conversations: Reference multiple files to understand data flow
 # Auto-generated from demos.json - Real copilot execution
 
-Output multi-file-demo.gif
+Output ./02-context-conversations/assets/multi-file-demo.gif
 
 Set FontSize 18
 Set Width 1000
@@ -24,8 +24,8 @@ Enter
 Sleep 5s
 
 # Execute the prompt
-Type "Compare @samples/book-app-project/book_app.py and @samples/book-app-project/books.py - how do they work together? What's the data flow?"
-Sleep 2s
+Type "@samples/pizza-recipe-project/pizza_app.py @samples/pizza-recipe-project/pizza_recipe.py @samples/pizza-recipe-project/utils.py How do these files work together? Trace the current call from pizza_app.py into pizza_recipe.py, and why no recipe data reaches utils.py yet."
+Sleep 3s
 Enter
 
 # Wait for response (with periodic nudges to keep input visible)

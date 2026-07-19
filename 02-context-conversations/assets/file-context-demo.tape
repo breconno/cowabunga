@@ -1,7 +1,7 @@
 # 02-context-conversations: Use @file to ask about a specific file
 # Auto-generated from demos.json - Real copilot execution
 
-Output file-context-demo.gif
+Output ./02-context-conversations/assets/file-context-demo.gif
 
 Set FontSize 18
 Set Width 1000
@@ -24,7 +24,7 @@ Enter
 Sleep 5s
 
 # Execute the prompt
-Type "What does @samples/book-app-project/utils.py do? Summarize briefly."
+Type "Explain what @samples/pizza-recipe-project/utils.py does? Summarize briefly."
 Sleep 2s
 Enter
 

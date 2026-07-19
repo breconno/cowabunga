@@ -1,7 +1,7 @@
 # 02-context-conversations: Multi-turn conversation building on previous context
 # Auto-generated from demos.json - Real copilot execution
 
-Output multi-turn-demo.gif
+Output ./02-context-conversations/assets/multi-turn-demo.gif
 
 Set FontSize 18
 Set Width 1000
