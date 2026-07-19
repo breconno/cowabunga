@@ -18,13 +18,14 @@ Set TypingSpeed 60ms
 
 # Launch copilot
 Type "copilot"
+Sleep 2s
 Enter
 
 # Wait for copilot to start
 Sleep 5s
 
 # Prompt 1
-Type "@samples/book-app-project/ Give me an overview of this project"
+Type "@samples/pizza-recipe-project/pizza_recipe.py What does this module do?"
 Sleep 2s
 Enter
 
@@ -49,55 +50,9 @@ Hide
 Type " "
 Backspace
 Show
-Sleep 3s
-Hide
-Type " "
-Backspace
-Show
-Sleep 3s
-Hide
-Type " "
-Backspace
-Show
-Sleep 3s
-Hide
-Type " "
-Backspace
-Show
-Sleep 3s
-Hide
-Type " "
-Backspace
-Show
-Sleep 3s
-Hide
-Type " "
-Backspace
-Show
-Sleep 3s
-Hide
-Type " "
-Backspace
-Show
-Sleep 3s
-Hide
-Type " "
-Backspace
-Show
-Sleep 3s
-Hide
-Type " "
-Backspace
-Show
-Sleep 3s
-Hide
-Type " "
-Backspace
-Show
-Sleep 1s
 
 # Prompt 2
-Type "What are the main code quality issues?"
+Type "@samples/pizza-recipe-project/ Give me an overview of the code structure."
 Sleep 2s
 Enter
 
@@ -122,55 +77,9 @@ Hide
 Type " "
 Backspace
 Show
-Sleep 3s
-Hide
-Type " "
-Backspace
-Show
-Sleep 3s
-Hide
-Type " "
-Backspace
-Show
-Sleep 3s
-Hide
-Type " "
-Backspace
-Show
-Sleep 3s
-Hide
-Type " "
-Backspace
-Show
-Sleep 3s
-Hide
-Type " "
-Backspace
-Show
-Sleep 3s
-Hide
-Type " "
-Backspace
-Show
-Sleep 3s
-Hide
-Type " "
-Backspace
-Show
-Sleep 3s
-Hide
-Type " "
-Backspace
-Show
-Sleep 3s
-Hide
-Type " "
-Backspace
-Show
-Sleep 1s
 
 # Prompt 3
-Type "Which issue should I fix first and show me how?"
+Type "What happens when pizza_app.py requests recipes now, and how will it send them to the terminal display after list_recipes() is implemented?"
 Sleep 2s
 Enter
 
@@ -195,57 +104,6 @@ Hide
 Type " "
 Backspace
 Show
-Sleep 3s
-Hide
-Type " "
-Backspace
-Show
-Sleep 3s
-Hide
-Type " "
-Backspace
-Show
-Sleep 3s
-Hide
-Type " "
-Backspace
-Show
-Sleep 3s
-Hide
-Type " "
-Backspace
-Show
-Sleep 3s
-Hide
-Type " "
-Backspace
-Show
-Sleep 3s
-Hide
-Type " "
-Backspace
-Show
-Sleep 3s
-Hide
-Type " "
-Backspace
-Show
-Sleep 3s
-Hide
-Type " "
-Backspace
-Show
-Sleep 3s
-Hide
-Type " "
-Backspace
-Show
-Sleep 3s
-Hide
-Type " "
-Backspace
-Show
-Sleep 3s
 
 # Nudge TUI to scroll to input area
 Type " "
